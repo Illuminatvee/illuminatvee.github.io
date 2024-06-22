@@ -1,0 +1,252 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Untree.co">
+  <link rel="shortcut icon" href="favicon.png">
+
+  <meta name="description" content="" />
+  <meta name="keywords" content="" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/owl.carousel.min.css">
+  <link rel="stylesheet" href="css/owl.theme.default.min.css">
+  <link rel="stylesheet" href="css/jquery.fancybox.min.css">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+
+</head>
+
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
+
+  <div class="lines-wrap">
+    <div class="lines-inner">
+      <div class="lines"></div>
+    </div>
+  </div>
+  <!-- END lines -->
+
+<!--menu code-->
+<div class="site-mobile-menu site-navbar-target">
+  <div class="site-mobile-menu-header">
+    <div class="site-mobile-menu-close">
+      <span class="icofont-close js-menu-toggle"></span>
+    </div>
+  </div>
+  <div class="site-mobile-menu-body"></div>
+</div>
+
+<nav class="site-nav dark mb-5 site-navbar-target">
+  <div class="container">
+    <div class="site-navigation">
+      <ul class="js-clone-nav d-none d-lg-inline-none site-menu float-right">
+        <li><a href="index.html#home-section" class="nav-link active">Home</a></li>
+      </ul>
+
+      <a href="#" class="burger ml-auto float-right site-menu-toggle js-menu-toggle d-inline-block d-lg-inline-block" data-toggle="collapse" data-target="#main-navbar">
+        <span></span>
+      </a>
+    </div>
+  </div>
+</nav>
+<!--aiproject-->
+
+<div class="untree_co-section untree_co-section-4 padding-md">
+  <div class="container">
+    <div class="row">
+      <div class="col-lg-12 mx-auto contents">
+        <div class="row">
+          <div class="col-lg-6">
+            <div class="custom-block" data-aos="fade-up">
+              <h2 class="section-title text-black">AI Project - Recipe Suggestion</h2>
+              <p>Upload an image of your fridge/pantry contents, and our AI will suggest recipes based on the ingredients you have available.</p>
+              <input type="file" id="imageUpload" accept="image/*" />
+              <button onclick="uploadImage()" class="btn btn-primary mt-2">Upload</button>
+              <div id="recipes" class="mt-4"></div>
+            </div>
+          </div>
+          <div class="col-lg-6">
+            <!-- You can keep other sections as they are or add more content -->
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!--footer code-->
+<div class="untree_co-section untree_co-section-4 pb-0">
+  <div class="col-lg-7 text-center mx-auto">
+    <div class="site-footer">
+      <div class="untree_co-section">
+
+        <div class="row mb-5">
+          <div class="col-lg-7 text-center mx-auto">
+            <div class="widget">
+              <h3>Contact</h3>
+              <address>Dade City, FL</address>
+              <ul class="list-unstyled links mb-4">
+                <li><a href="tel://8138921598">+1(813)-892-1598</a></li>
+                <li><a href="mailto:valerierit@outlook.com">valerierit@outlook.com</a></li>
+              </ul>
+              <ul class="list-unstyled social">
+                <li><a href="#"><span class="icon-linkedin"></span></a></li>
+              </ul>
+
+            </div> <!-- /.widget -->
+          </div> <!-- /.col-lg-3 -->
+
+        </div> <!-- /.row -->
+      </div>
+    </div>
+  </div>
+
+  <div class="row mt-5">
+    <div class="col-12 text-center">
+      <p class="mb-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a>  Distributed By <a href="https://themewagon.com">ThemeWagon</a> <br>(Modified by me, Valerie Ricker) <!-- License information: https://untree.co/license/ -->
+      </p>
+    </div>
+  </div>
+</div> <!-- /.container -->
+</div> <!-- /.site-footer -->
+
+<div id="overlayer"></div>
+<div class="loader">
+  <div class="spinner-border" role="status">
+    <span class="sr-only">Loading...</span>
+  </div>
+</div>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.fancybox.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/wave-animate.js"></script>
+<script src="js/circle-progress.js"></script>
+<script src="js/imagesloaded.pkgd.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/ScrollMagic.min.js"></script>
+<script src="js/scrollmagic.animation.gsap.min.js"></script>
+<script src="js/custom.js"></script>
+
+<script>
+  async function uploadImage() {
+    const file = document.getElementById('imageUpload').files[0];
+    const formData = new FormData();
+    formData.append('file', file);
+    
+    const response = await fetch('https://kqqj8swv30.execute-api.us-east-2.amazonaws.com/production1/ingredients', {
+      method: 'POST',
+      body: formData
+    });
+
+    const result = await response.json();
+    displayRecipes(result);
+  }
+
+  function displayRecipes(recipes) {
+    const recipesDiv = document.getElementById('recipes');
+    recipesDiv.innerHTML = '';
+    recipes.forEach(recipe => {
+      const recipeElement = document.createElement('div');
+      recipeElement.innerHTML = `
+        <h2>${recipe.recipe_name}</h2>
+        <p><strong>Ingredients:</strong> ${recipe.ingredients}</p>
+        <p><strong>Directions:</strong> ${recipe.directions}</p>
+        <p><strong>Rating:</strong> ${recipe.rating}</p>
+        <a href="${recipe.url}" target="_blank">View Full Recipe</a>
+        <img src="${recipe.img_src}" alt="${recipe.recipe_name}" width="200">
+      `;
+      recipesDiv.appendChild(recipeElement);
+    });
+  }
+</script>
+
+ <!--footer code-->
+<div class="untree_co-section untree_co-section-4 pb-0">
+  <div class="col-lg-7 text-center mx-auto">
+<div class="site-footer">
+<div class="untree_co-section">
+
+<div class="row mb-5">
+<div class="col-lg-7 text-center mx-auto">
+<div class="widget">
+<h3>Contact</h3>
+<address>Dade City, FL</address>
+<ul class="list-unstyled links mb-4">
+<li><a href="tel://8138921598">+1(813)-892-1598</a></li>
+<li><a href="mailto:valerierit@outlook.com">valerierit@outlook.com</a></li>
+</ul>
+<ul class="list-unstyled social">
+<li><a href="#"><span class="icon-linkedin"></span></a></li>
+</ul>
+
+</div> <!-- /.widget -->
+</div> <!-- /.col-lg-3 -->
+
+</div> <!-- /.row -->
+</div>
+</div>
+</div>
+
+
+<div class="row mt-5">
+<div class="col-12 text-center">
+<!-- 
+  **==========
+  NOTE: 
+  Please don't remove this copyright link unless you buy the license here https://untree.co/license/  
+
+  **==========
+-->
+<p class="mb-0">Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved. &mdash; Designed with love by <a href="https://untree.co">Untree.co</a>  Distributed By <a href="https://themewagon.com">ThemeWagon</a> <br>(Modified by me, Valerie Ricker) <!-- License information: https://untree.co/license/ -->
+</p>
+</div>
+</div>
+</div> <!-- /.container -->
+</div> <!-- /.site-footer -->
+
+<div id="overlayer"></div>
+<div class="loader">
+<div class="spinner-border" role="status">
+<span class="sr-only">Loading...</span>
+</div>
+</div>
+
+<script src="js/jquery-3.4.1.min.js"></script>
+<script src="js/popper.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/owl.carousel.min.js"></script>
+<script src="js/jquery.animateNumber.min.js"></script>
+<script src="js/jquery.waypoints.min.js"></script>
+<script src="js/jquery.fancybox.min.js"></script>
+<script src="js/aos.js"></script>
+<script src="js/wave-animate.js"></script>
+<script src="js/circle-progress.js"></script>
+<script src="js/imagesloaded.pkgd.js"></script>
+<script src="js/isotope.pkgd.min.js"></script>
+<script src="js/jquery.easing.1.3.js"></script>
+<script src="js/TweenMax.min.js"></script>
+<script src="js/ScrollMagic.min.js"></script>
+<script src="js/scrollmagic.animation.gsap.min.js"></script>
+
+
+<script src="js/custom.js"></script>
+
+</body>
+
+</html>
