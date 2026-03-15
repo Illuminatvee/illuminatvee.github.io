@@ -4,6 +4,9 @@
 * Author URI: https://untree.co/
 * License: https://creativecommons.org/licenses/by/3.0/
 */
+html {
+  scroll-behavior: smooth; }
+
 body {
   font-family: "PT Mono", monospace;
   line-height: 1.6;
@@ -1755,3 +1758,531 @@ figure.dotted-bg {
         background: #36a1ff;
         color: #ffffff; }
 
+
+/* ============================================================
+   VALERIE PEREZ — CUSTOM STYLES
+   Added below template styles. Do not edit above this line.
+   ============================================================ */
+
+/* Hero section */
+.vp-hero {
+  padding: 48px 0 48px;
+  text-align: center; }
+
+.vp-hero-eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .2em;
+  text-transform: uppercase;
+  color: #3e3856;
+  margin-bottom: 8px; }
+
+.vp-hero-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 56px;
+  font-weight: 700;
+  color: #2a2535;
+  line-height: 1;
+  margin-bottom: 6px; }
+  @media (max-width: 767.98px) {
+    .vp-hero-name {
+      font-size: 38px; } }
+
+.vp-hero-tags {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 8px;
+  justify-content: center;
+  margin-bottom: 36px; }
+
+.vp-tag {
+  font-family: "PT Mono", monospace;
+  font-size: 11px;
+  color: #6b6190;
+  border: 1px solid rgba(107, 97, 144, 0.4);
+  border-radius: 4px;
+  padding: 5px 12px; }
+
+.vp-hero-btn {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #2a2535;
+  border: 1.5px solid rgba(42, 37, 53, 0.45);
+  border-radius: 4px;
+  padding: 11px 26px;
+  text-decoration: none;
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease; }
+  .vp-hero-btn:hover {
+    background: #2a2535;
+    color: #dddde6;
+    text-decoration: none; }
+
+/* Section shared styles */
+.vp-section {
+  padding: 36px 0; }
+
+.vp-dark-band {
+  background: rgba(42, 37, 53, 0.4); }
+
+.vp-eyebrow {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .18em;
+  text-transform: uppercase;
+  text-align: center;
+  margin-bottom: 8px; }
+
+.vp-section-heading {
+  font-family: "Montserrat", sans-serif;
+  font-size: 26px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 6px; }
+
+.vp-section-sub {
+  font-family: "PT Mono", monospace;
+  font-size: 12px;
+  text-align: center;
+  margin-bottom: 20px; }
+
+.vp-rule {
+  width: 36px;
+  height: 2px;
+  margin: 0 auto 40px;
+  background: #8a81a3;
+  opacity: .55;
+  border: none; }
+
+/* On light background */
+.vp-on-light .vp-eyebrow { color: #8a81a3; }
+.vp-on-light .vp-section-heading { color: #2a2535; }
+.vp-on-light .vp-section-sub { color: #6b6585; }
+
+/* On dark background */
+.vp-on-dark .vp-eyebrow { color: #c0bcd4; }
+.vp-on-dark .vp-section-heading { color: #f0eef8; }
+.vp-on-dark .vp-section-sub { color: #c0bcd4; }
+
+/* Education & cert cards */
+.vp-cert-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 1fr 20px 1fr 20px 1fr;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 20px; }
+  @media (max-width: 767.98px) {
+    .vp-cert-grid {
+      grid-template-columns: 1fr; } }
+  @media (min-width: 768px) and (max-width: 991.98px) {
+    .vp-cert-grid {
+      grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+
+.vp-cert-card {
+  background: #eeecf6;
+  border: 1px solid rgba(138, 129, 163, 0.25);
+  border-top: 3px solid #6b6190;
+  border-radius: 10px;
+  padding: 28px 20px 24px;
+  text-align: center;
+  -webkit-transition: transform .2s ease, border-color .2s ease;
+  -o-transition: transform .2s ease, border-color .2s ease;
+  transition: transform .2s ease, border-color .2s ease; }
+  .vp-cert-card:hover {
+    -webkit-transform: translateY(-3px);
+    -ms-transform: translateY(-3px);
+    transform: translateY(-3px);
+    border-color: rgba(138, 129, 163, 0.55); }
+
+.vp-cert-badge {
+  height: 72px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  justify-content: center;
+  margin-bottom: 16px; }
+
+.vp-cert-badge img {
+  max-height: 68px;
+  max-width: 110px;
+  object-fit: contain; }
+
+.vp-cert-card-title {
+  font-family: "Montserrat", sans-serif;
+  font-size: 12px;
+  font-weight: 700;
+  color: #2a2535;
+  margin-bottom: 14px; }
+
+.vp-cert-table {
+  width: 100%;
+  border-collapse: collapse; }
+
+.vp-cert-table tr {
+  border-top: 1px solid rgba(107, 97, 144, 0.18); }
+
+.vp-cert-table tr:first-child {
+  border-top: none; }
+
+.vp-cert-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  color: #3d3558;
+  text-align: left;
+  padding: 7px 6px 7px 0;
+  line-height: 1.4; }
+
+.vp-cert-date {
+  font-family: "PT Mono", monospace;
+  font-size: 11px;
+  color: #8a81a3;
+  text-align: right;
+  white-space: nowrap;
+  padding: 7px 0;
+  vertical-align: top; }
+
+/* Skills */
+.vp-skill-group {
+  margin-bottom: 24px;
+  text-align: center; }
+
+.vp-skill-label {
+  font-family: "Montserrat", sans-serif;
+  font-size: 10px;
+  font-weight: 700;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #6b6585;
+  display: block;
+  margin-bottom: 10px; }
+
+.vp-chips {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+  gap: 7px;
+  justify-content: center; }
+
+.vp-chip {
+  font-family: "PT Mono", monospace;
+  font-size: 11px;
+  padding: 6px 14px;
+  border-radius: 20px;
+  display: inline-block;
+  -webkit-transition: transform 0.3s ease;
+  -o-transition: transform 0.3s ease;
+  transition: transform 0.3s ease;
+  cursor: default;
+  position: relative; }
+
+.vp-chip:hover {
+  -webkit-transform: scale(1.3);
+  -ms-transform: scale(1.3);
+  transform: scale(1.3);
+  z-index: 2; }
+
+.vp-chip--core {
+  background: #6b6190;
+  color: #e8e6f0; }
+
+.vp-chip--iam {
+  background: #7a7399;
+  color: #ece9f5; }
+
+.vp-chip--auto {
+  background: #7d7a9e;
+  color: #eeedf5; }
+
+.vp-chip--process {
+  background: rgba(107, 97, 144, 0.14);
+  color: #4a4568;
+  border: 1px solid rgba(107, 97, 144, 0.3); }
+
+/* About section */
+.vp-about-grid {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: 200px 1fr;
+  grid-template-columns: 200px 1fr;
+  gap: 48px;
+  -webkit-box-align: start;
+  -ms-flex-align: start;
+  align-items: start; }
+  @media (max-width: 767.98px) {
+    .vp-about-grid {
+      grid-template-columns: 1fr;
+      text-align: center; } }
+
+.vp-about-photo {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  overflow: hidden;
+  border: 2px solid rgba(138, 129, 163, 0.35);
+  object-fit: cover; }
+  @media (max-width: 767.98px) {
+    .vp-about-photo {
+      margin: 0 auto; } }
+
+.vp-about-name {
+  font-family: "Montserrat", sans-serif;
+  font-size: 20px;
+  font-weight: 700;
+  color: #f0eef8;
+  margin-bottom: 4px; }
+
+.vp-about-role {
+  font-family: "PT Mono", monospace;
+  font-size: 12px;
+  color: #a09ab8;
+  margin-bottom: 20px; }
+
+.vp-about-p {
+  font-family: "PT Mono", monospace;
+  font-size: 13px;
+  color: #d8d4ee;
+  line-height: 1.9;
+  margin-bottom: 14px; }
+
+.vp-about-btn {
+  display: inline-block;
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: #dddde6;
+  border: 1.5px solid rgba(221, 221, 230, 0.35);
+  border-radius: 4px;
+  padding: 10px 22px;
+  margin-top: 8px;
+  text-decoration: none;
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease; }
+  .vp-about-btn:hover {
+    background: rgba(221, 221, 230, 0.1);
+    color: #ffffff;
+    text-decoration: none; }
+
+/* Footer overrides */
+.vp-footer {
+  background: #2a2535;
+  padding: 48px 40px;
+  text-align: center; }
+
+.vp-footer-heading {
+  font-family: "Montserrat", sans-serif;
+  font-size: 11px;
+  font-weight: 700;
+  letter-spacing: .12em;
+  text-transform: uppercase;
+  color: #dddde6;
+  margin-bottom: 16px; }
+
+.vp-footer p {
+  font-family: "PT Mono", monospace;
+  font-size: 12px;
+  color: #8a81a3;
+  margin-bottom: 5px;
+  line-height: 1.7; }
+
+.vp-footer a {
+  color: #8a81a3; }
+  .vp-footer a:hover {
+    color: #dddde6; }
+
+.vp-footer-credit {
+  font-family: "PT Mono", monospace;
+  font-size: 10px;
+  color: #4a4568;
+  margin-top: 24px;
+  line-height: 1.7; }
+  .vp-footer-credit a {
+    color: #4a4568; }
+
+/* ============================================================
+   TEMPLATE CONFLICT OVERRIDES
+   These fix template global styles that bleed into vp- classes
+   ============================================================ */
+
+/* Fix: template sets all h1-h4 to #dddde6, we need dark headings on light sections */
+.vp-on-light .vp-section-heading,
+.vp-on-light h2.vp-section-heading {
+  color: #2a2535 !important; }
+
+.vp-on-light .vp-eyebrow {
+  color: #8a81a3 !important; }
+
+.vp-on-light .vp-section-sub {
+  color: #6b6585 !important; }
+
+.vp-on-light .vp-skill-label {
+  color: #6b6585 !important; }
+
+.vp-on-dark .vp-section-heading,
+.vp-on-dark h2.vp-section-heading {
+  color: #f0eef8 !important; }
+
+.vp-on-dark .vp-eyebrow {
+  color: #c0bcd4 !important; }
+
+.vp-on-dark .vp-section-sub {
+  color: #c0bcd4 !important; }
+
+/* Fix: hero name needs to be dark, not the template default light */
+h1.vp-hero-name {
+  color: #2a2535 !important; }
+
+/* Fix: cert card title inherits template h color */
+p.vp-cert-card-title {
+  color: #2a2535 !important; }
+
+/* Nav override -- dark bar matching mockup */
+.site-nav.dark {
+  background: #2a2535 !important;
+  position: relative !important;
+  padding-top: 14px !important;
+  padding-bottom: 14px !important; }
+
+.site-nav.dark .site-navigation .site-menu > li > a {
+  color: #b2afc8 !important;
+  font-size: 12px !important;
+  letter-spacing: .08em !important;
+  text-transform: uppercase !important; }
+
+.site-nav.dark .site-navigation .site-menu > li > a:hover {
+  color: #ffffff !important; }
+
+.site-nav.dark .site-navigation .site-menu > li.active > a {
+  color: #ffffff !important; }
+
+.site-nav.dark .burger:before,
+.site-nav.dark .burger span,
+.site-nav.dark .burger:after {
+  background: #b2afc8; }
+
+/* Dropdown styling to match dark nav */
+.site-nav .site-navigation .site-menu .has-children .dropdown {
+  background: #2a2535 !important;
+  border: 1px solid rgba(138, 129, 163, 0.2); }
+
+.site-nav .site-navigation .site-menu .has-children .dropdown a {
+  color: #b2afc8 !important; }
+
+.site-nav .site-navigation .site-menu .has-children .dropdown a:hover {
+  color: #ffffff !important;
+  background: rgba(138, 129, 163, 0.1) !important; }
+.lines-wrap {
+  display: none; }
+
+/* Fix: dark band needs solid enough background to not wash out */
+.vp-dark-band {
+  background: rgba(42, 37, 53, 0.5); }
+
+/* Fix: skills section background bleed -- ensure light sections sit cleanly */
+#skills-section {
+  background: #d5d1e0; }
+
+/* Fix: remove excess bottom padding the template mb-5 adds after nav */
+.site-nav.mb-5 {
+  margin-bottom: 0 !important; }
+
+/* Fix: use flexbox so nav height is driven by content, not just padding */
+.site-nav .site-navigation {
+  display: flex;
+  align-items: center;
+  justify-content: flex-end; }
+
+/* Fix: chip overflow clipping -- give flex rows room to breathe */
+.vp-chips {
+  padding-bottom: 8px;
+  overflow: visible; }
+
+.vp-skill-group {
+  overflow: visible; }
+
+#skills-section .vp-section {
+  overflow: visible; }
+
+/* Fix: about section on light bg -- body text and button need dark colors */
+#about-section .vp-about-p {
+  color: #3d3558 !important; }
+
+#about-section .vp-about-btn {
+  color: #2a2535 !important;
+  border-color: rgba(42, 37, 53, 0.4) !important; }
+
+#about-section .vp-about-btn:hover {
+  background: #2a2535 !important;
+  color: #ffffff !important; }
+
+/* Hero LinkedIn subtle text link */
+.vp-hero-linkedin a {
+  color: #3e3856;
+  text-decoration: none;
+  border-bottom: 1px solid rgba(62, 56, 86, 0.35);
+  padding-bottom: 2px;
+  -webkit-transition: .3s all ease;
+  -o-transition: .3s all ease;
+  transition: .3s all ease; }
+
+.vp-hero-linkedin a:hover {
+  color: #2a2535;
+  border-color: #2a2535; }
+
+/* Fix: Education and About headings -- force dark on dark band */
+#education-section .vp-section-heading,
+#about-section .vp-section-heading {
+  color: #2a2535 !important; }
+
+#education-section .vp-eyebrow,
+#about-section .vp-eyebrow {
+  color: #3e3856 !important; }
+
+#education-section .vp-section-sub,
+#about-section .vp-section-sub {
+  color: #3e3856 !important; }
+
+/* Fix: about name specifically */
+h2.vp-section-heading {
+  color: #2a2535 !important; }
+
+.vp-about-name {
+  color: #2a2535 !important; }
+
+.vp-about-role {
+  color: #4a4568 !important; }
+
+/* Hero LinkedIn link -- sits under name, above tags */
+.vp-hero-linkedin {
+  font-family: "PT Mono", monospace;
+  font-size: 11px;
+  margin-top: 2px;
+  margin-bottom: 14px; }
+
+/* Fix: override the dark band background for education/about to be lighter */
+#education-section,
+#about-section {
+  background: #cac6d6; }
+
+/* Fix: old template added 7rem top margin to about-section, causing the gap */
+#about-section {
+  margin-top: 0 !important; }
