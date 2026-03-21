@@ -1,115 +1,55 @@
 <!doctype html>
 <html lang="en">
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="author" content="Valerie Perez">
   <link rel="shortcut icon" href="images/favicon.ico">
-  <meta name="description" content="Mailbox Consolidation and Migration Pipeline - Portfolio project by Valerie Perez" />
-  <title>Mailbox Consolidation &amp; Migration Pipeline | Valerie Perez</title>
-
+  <meta name="description" content="M365 Consolidation Automation Pipeline - Portfolio project by Valerie Perez" />
+  <title>M365 Consolidation Automation Pipeline | Valerie Perez</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet">
-
   <link rel="stylesheet" href="css/bootstrap.min.css">
   <link rel="stylesheet" href="fonts/icomoon/style.css">
   <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
   <link rel="stylesheet" href="css/aos.css">
   <link rel="stylesheet" href="css/style.css">
-
   <style>
     /* ── Hero ─────────────────────────────────────────────── */
-    .proj-hero {
-      background: #2a2535;
-      padding: 64px 0 52px;
-      text-align: center;
-    }
-    .proj-hero-eyebrow {
-      font-family: "PT Mono", monospace;
-      font-size: 10px;
-      letter-spacing: .18em;
-      text-transform: uppercase;
-      color: #8a81a3;
-      margin-bottom: 12px;
-    }
-    .proj-hero-title {
-      font-family: "Montserrat", sans-serif;
-      font-size: 36px;
-      font-weight: 700;
-      color: #f0eef8;
-      line-height: 1.15;
-      margin-bottom: 14px;
-    }
-    @media (max-width: 767.98px) { .proj-hero-title { font-size: 26px; } }
-    .proj-hero-sub {
-      font-family: "PT Mono", monospace;
-      font-size: 12px;
-      color: #b2afc8;
-      margin-bottom: 24px;
-    }
+    .proj-hero { background: #2a2535; padding: 64px 0 52px; text-align: center; }
+    .proj-hero-eyebrow { font-family: "PT Mono", monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #8a81a3; margin-bottom: 12px; }
+    .proj-hero-title { font-family: "Montserrat", sans-serif; font-size: 36px; font-weight: 700; color: #f0eef8; line-height: 1.15; margin-bottom: 14px; }
+    @media (max-width: 767.98px) { .proj-hero-title { font-size: 24px; } }
+    .proj-hero-sub { font-family: "PT Mono", monospace; font-size: 12px; color: #b2afc8; margin-bottom: 24px; }
     .proj-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
-    .proj-tag {
-      font-family: "PT Mono", monospace;
-      font-size: 11px;
-      color: #c0bcd4;
-      border: 1px solid rgba(192, 188, 212, 0.35);
-      border-radius: 4px;
-      padding: 4px 11px;
-    }
-
+    .proj-tag { font-family: "PT Mono", monospace; font-size: 11px; color: #c0bcd4; border: 1px solid rgba(192,188,212,0.35); border-radius: 4px; padding: 4px 11px; }
     /* ── Before / After ───────────────────────────────────── */
     .vp-before-after { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 2rem 0; }
     .vp-ba-card { border-radius: 8px; padding: 1.25rem 1.4rem; }
-    .vp-ba-card.before { background: #fdf4e7; border: 1.5px solid #e5c896; }
+    .vp-ba-card.before { background: #f0eef8; border: 1.5px solid #a49bc8; }
     .vp-ba-card.after  { background: #e8f5f0; border: 1.5px solid #8ecfbb; }
-    .vp-ba-label {
-      font-family: "Montserrat", sans-serif;
-      font-weight: 700;
-      font-size: 0.7rem;
-      letter-spacing: 0.1em;
-      text-transform: uppercase;
-      margin-bottom: 0.6rem;
-    }
-    .vp-ba-card.before .vp-ba-label { color: #9a6010; }
+    .vp-ba-label { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.6rem; }
+    .vp-ba-card.before .vp-ba-label { color: #4a3d7a; }
     .vp-ba-card.after  .vp-ba-label { color: #2a8a72; }
     .vp-ba-card ul { margin: 0; padding-left: 1.1rem; font-size: 0.82rem; color: #3d3558; line-height: 1.7; }
-
-    /* ── Pipeline ─────────────────────────────────────────── */
+    /* ── Pipeline stages ──────────────────────────────────── */
     .vp-pipeline { display: flex; align-items: stretch; gap: 0; margin: 2.5rem 0 1.5rem; flex-wrap: wrap; }
-    .vp-pipeline-stage {
-      flex: 1; min-width: 220px; background: #fff;
-      border: 1px solid rgba(107, 97, 144, 0.22);
-      border-radius: 8px; padding: 1.5rem 1.4rem 1.4rem; position: relative;
-    }
+    .vp-pipeline-stage { flex: 1; min-width: 220px; background: #fff; border: 1px solid rgba(107,97,144,0.22); border-radius: 8px; padding: 1.5rem 1.4rem 1.4rem; position: relative; }
     .vp-pipeline-stage + .vp-pipeline-stage { margin-left: 2.4rem; }
-    .vp-pipeline-stage + .vp-pipeline-stage::before {
-      content: "→"; position: absolute; left: -1.7rem; top: 50%;
-      transform: translateY(-50%); font-size: 1.3rem; color: #6b6190; font-weight: 700;
-    }
-    .vp-stage-number {
-      display: inline-block; background: #6b6190; color: #fff;
-      font-size: 0.7rem; font-weight: 700; font-family: "Montserrat", sans-serif;
-      letter-spacing: 0.08em; padding: 2px 9px; border-radius: 20px;
-      margin-bottom: 0.6rem; text-transform: uppercase;
-    }
+    .vp-pipeline-stage + .vp-pipeline-stage::before { content: "→"; position: absolute; left: -1.7rem; top: 50%; transform: translateY(-50%); font-size: 1.3rem; color: #6b6190; font-weight: 700; }
+    .vp-stage-number { display: inline-block; background: #6b6190; color: #fff; font-size: 0.7rem; font-weight: 700; font-family: "Montserrat", sans-serif; letter-spacing: 0.08em; padding: 2px 9px; border-radius: 20px; margin-bottom: 0.6rem; text-transform: uppercase; }
     .vp-stage-title { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.95rem; color: #2a2535; margin-bottom: 0.75rem; }
     .vp-stage-desc { font-size: 0.82rem; font-family: "PT Mono", monospace; color: #3d3558; line-height: 1.55; margin: 0; }
-
-    /* ── Execution Order ──────────────────────────────────── */
-    .vp-exec-order { display: flex; flex-direction: column; gap: 0; margin: 1.5rem 0; }
-    .vp-exec-row {
-      display: flex; align-items: flex-start; gap: 1rem;
-      padding: 0.65rem 0; border-bottom: 1px solid rgba(107, 97, 144, 0.15);
-    }
-    .vp-exec-row:last-child { border-bottom: none; }
-    .vp-exec-phase { font-family: "PT Mono", monospace; font-size: 0.72rem; font-weight: 700; color: #6b6190; min-width: 90px; padding-top: 1px; }
-    .vp-exec-label { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.8rem; color: #2a2535; min-width: 130px; }
-    .vp-exec-desc { font-size: 0.8rem; font-family: "PT Mono", monospace; color: #6b6585; line-height: 1.5; }
-
-    /* ── Excel Mockup ─────────────────────────────────────── */
-    .vp-excel-mockup { border-radius: 8px; overflow: hidden; border: 1px solid rgba(107, 97, 144, 0.22); margin: 2rem 0; font-family: "PT Mono", monospace; font-size: 0.72rem; }
+    /* ── Flow rows (phase order) ──────────────────────────── */
+    .vp-flow { display: flex; flex-direction: column; margin: 1.5rem 0; }
+    .vp-flow-row { display: flex; align-items: flex-start; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid rgba(107,97,144,0.15); }
+    .vp-flow-row:last-child { border-bottom: none; }
+    .vp-flow-step { font-family: "PT Mono", monospace; font-size: 0.72rem; font-weight: 700; color: #6b6190; min-width: 80px; padding-top: 2px; }
+    .vp-flow-label { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.8rem; color: #2a2535; min-width: 150px; }
+    .vp-flow-desc { font-size: 0.8rem; font-family: "PT Mono", monospace; color: #6b6585; line-height: 1.55; }
+    /* ── Excel mockup ─────────────────────────────────────── */
+    .vp-excel-mockup { border-radius: 8px; overflow: hidden; border: 1px solid rgba(107,97,144,0.22); margin: 2rem 0; font-family: "PT Mono", monospace; font-size: 0.72rem; }
     .vp-excel-toolbar { background: #217346; padding: 6px 14px; display: flex; align-items: center; gap: 10px; }
     .vp-excel-toolbar span { color: #fff; font-family: "Montserrat", sans-serif; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.04em; }
     .vp-excel-dot { width: 10px; height: 10px; border-radius: 50%; display: inline-block; }
@@ -125,83 +65,76 @@
     .plan-depreciate  { background: #7d3c65; color: #fff; }
     .plan-pending     { background: #D3D3D3; color: #999; font-style: italic; }
     .auto-cell        { color: #6b6190; font-style: italic; }
-    .vp-tabs { display: flex; gap: 0; margin-bottom: -1px; }
-    .vp-tab { padding: 5px 16px; font-family: "Montserrat", sans-serif; font-size: 0.7rem; font-weight: 700; border-radius: 4px 4px 0 0; border: 1px solid rgba(107,97,144,0.22); border-bottom: none; cursor: default; background: #ece9f5; color: #8a81a3; }
-    .vp-tab.active { background: #fff; color: #2a2535; }
-
-    /* ── Action Block ─────────────────────────────────────── */
+    /* ── Action plan block ────────────────────────────────── */
     .vp-action-block { background: #2a2535; border-radius: 8px; padding: 1.4rem 1.6rem; margin: 2rem 0; font-family: "PT Mono", monospace; font-size: 0.78rem; line-height: 1.8; color: #c5d0de; overflow-x: auto; }
-    .ap-header { color: #6b6585; margin-bottom: 0.5rem; }
-    .ap-divider { border-top: 1px solid #6b6190; margin: 0.6rem 0; }
+    .ap-header   { color: #6b6585; margin-bottom: 0.5rem; }
+    .ap-divider  { border-top: 1px solid #6b6190; margin: 0.6rem 0; }
     .ap-phase-label { color: #b2afc8; margin-top: 0.9rem; margin-bottom: 0.3rem; font-weight: bold; }
     .ap-row { display: flex; align-items: baseline; gap: 0.75rem; margin-bottom: 0.1rem; padding-left: 1rem; }
     .ap-account { color: #c0bcd4; font-weight: bold; min-width: 180px; }
-    .ap-action { color: #f97583; font-weight: bold; min-width: 100px; }
-    .ap-detail { color: #c5d0de; }
+    .ap-action  { color: #f97583; font-weight: bold; min-width: 100px; }
+    .ap-detail  { color: #c5d0de; }
     .ap-detail-block { padding-left: 2.8rem; margin-bottom: 0.2rem; }
-    .ap-kv { display: flex; gap: 0.75rem; }
+    .ap-kv  { display: flex; gap: 0.75rem; }
     .ap-key { color: #6b6585; min-width: 80px; }
     .ap-val { color: #c5d0de; }
     .ap-note { color: #e3b341; }
     .ap-warn { color: #f97583; font-weight: bold; margin-top: 0.5rem; }
-
-    /* ── Nuance List ──────────────────────────────────────── */
+    /* ── Nuance list ──────────────────────────────────────── */
     .vp-nuance-list { margin: 2rem 0; }
-    .vp-nuance-item { display: flex; gap: 2rem; padding: 1.4rem 0; border-bottom: 1px solid rgba(107, 97, 144, 0.2); align-items: flex-start; }
+    .vp-nuance-item { display: flex; gap: 2rem; padding: 1.4rem 0; border-bottom: 1px solid rgba(107,97,144,0.2); align-items: flex-start; }
     .vp-nuance-item:last-child { border-bottom: none; }
     .vp-nuance-left { width: 180px; flex-shrink: 0; padding-top: 2px; }
-    .vp-nuance-tag { display: inline-block; background: rgba(107, 97, 144, 0.3); color: #c0bcd4; font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(107, 97, 144, 0.45); }
+    .vp-nuance-tag { display: inline-block; background: rgba(107,97,144,0.15); color: #4a3d7a; font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(107,97,144,0.45); }
     .vp-nuance-right { flex: 1; }
-    .vp-nuance-title { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.88rem; color: #f0eef8; margin-bottom: 0.45rem; }
-    .vp-nuance-right p { font-size: 0.82rem; font-family: "PT Mono", monospace; color: #b2afc8; line-height: 1.65; margin: 0; }
-
-    /* ── Role Callout ─────────────────────────────────────── */
+    .vp-nuance-title { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.88rem; color: #2a2535; margin-bottom: 0.45rem; }
+    .vp-nuance-right p { font-size: 0.82rem; font-family: "PT Mono", monospace; color: #6b6585; line-height: 1.65; margin: 0; }
+    /* Dark-band nuance overrides */
+    .vp-dark-band .vp-nuance-title { color: #f0eef8; }
+    .vp-dark-band .vp-nuance-right p { color: #b2afc8; }
+    .vp-dark-band .vp-nuance-tag { background: rgba(107,97,144,0.3); color: #c0bcd4; }
+    /* ── What this demonstrates ───────────────────────────── */
+    .vp-demonstrates-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0; }
+    .vp-demo-card { background: rgba(107,97,144,0.08); border: 1px solid rgba(107,97,144,0.22); border-radius: 8px; padding: 1rem 1.2rem; }
+    .vp-demo-card-title { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.8rem; color: #2a2535; margin-bottom: 0.35rem; }
+    .vp-demo-card p { font-family: "PT Mono", monospace; font-size: 0.78rem; color: #6b6585; line-height: 1.6; margin: 0; }
+    /* ── Role callout ─────────────────────────────────────── */
     .vp-role-callout { background: #eeecf6; border-left: 4px solid #6b6190; border-radius: 0 8px 8px 0; padding: 1.1rem 1.4rem; margin: 2rem 0; font-size: 0.88rem; font-family: "PT Mono", monospace; color: #3d3558; line-height: 1.65; }
     .vp-role-callout strong { color: #2a2535; font-family: "Montserrat", sans-serif; }
     .vp-tech-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; justify-content: center; }
     .vp-skill-group { text-align: center; }
+    /* ── Chip overrides for dark band ────────────────────── */
+    .vp-dark-band .vp-chip--process { background: rgba(107,97,144,0.35); color: #e8e6f0; border-color: rgba(107,97,144,0.55); }
 
-    /* ── Page paragraph (bypasses style.css vp-about-p) ─────── */
-    .port-p {
-      font-family: "PT Mono", monospace;
-      font-size: 13px;
-      color: #3d3558;
-      line-height: 1.8;
-      margin-bottom: 14px;
-    }
+    /* ── General prose ────────────────────────────────────── */
+    .port-p { font-family: "PT Mono", monospace; font-size: 13px; color: #3d3558; line-height: 1.8; margin-bottom: 14px; }
     .vp-dark-band .port-p { color: #c0bcd4; }
-
-    /* ── Dark band overrides (high specificity) ──────────────── */
+    /* ── Dark band overrides ──────────────────────────────── */
     html body .vp-dark-band                     { background: #2a2535 !important; }
     html body .vp-dark-band .vp-section-heading { color: #f0eef8 !important; }
     html body .vp-dark-band .vp-eyebrow         { color: #9d96b8 !important; }
     html body .vp-dark-band .vp-rule            { border-top-color: #6b6190 !important; }
-
     /* ── Mobile ───────────────────────────────────────────── */
     @media (max-width: 768px) {
       .vp-pipeline { flex-direction: column; }
       .vp-pipeline-stage + .vp-pipeline-stage { margin-left: 0; margin-top: 1.8rem; }
       .vp-pipeline-stage + .vp-pipeline-stage::before { content: "↓"; left: 50%; top: -1.4rem; transform: translateX(-50%); }
-      .vp-before-after { grid-template-columns: 1fr; }
+      .vp-before-after, .vp-demonstrates-grid { grid-template-columns: 1fr; }
       .vp-nuance-item { flex-direction: column; gap: 0.75rem; }
       .vp-nuance-left { min-width: unset; }
       .vp-excel-mockup, .vp-action-block { overflow-x: auto; }
-      .vp-exec-row { flex-wrap: wrap; }
+      .vp-flow-row { flex-wrap: wrap; }
     }
   </style>
 </head>
-
 <body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
-
   <div class="lines-wrap"><div class="lines-inner"><div class="lines"></div></div></div>
-
   <div class="site-mobile-menu site-navbar-target">
     <div class="site-mobile-menu-header">
       <div class="site-mobile-menu-close"><span class="icofont-close js-menu-toggle"></span></div>
     </div>
     <div class="site-mobile-menu-body"></div>
   </div>
-
   <nav class="site-nav dark mb-5 site-navbar-target">
     <div class="container">
       <div class="site-navigation">
@@ -213,35 +146,34 @@
           <li class="has-children">
             <a href="#">Portfolio</a>
             <ul class="dropdown">
-              <li><a href="portfolio-rebranding-tool.html">Mailbox Consolidation Pipeline</a></li>
+              <li><a href="portfolio-identity-federation.html">Bidirectional Enterprise Federation</a></li>
+              <li><a href="portfolio-rebranding-tool.html">M365 Consolidation Automation Pipeline</a></li>
             </ul>
           </li>
         </ul>
-        <a href="#" class="burger ml-auto site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar">
-          <span></span>
-        </a>
+        <a href="#" class="burger ml-auto site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar"><span></span></a>
       </div>
     </div>
   </nav>
-
-  <!-- ── Hero ─────────────────────────────────────────────────── -->
+  <!-- ── HERO ──────────────────────────────────────────────────── -->
   <div class="proj-hero">
     <div class="container">
-      <p class="proj-hero-eyebrow">Portfolio &nbsp;/&nbsp; Automation &amp; Process Design</p>
-      <h1 class="proj-hero-title">Mailbox Consolidation &amp; Migration Pipeline</h1>
-      <p class="proj-hero-sub">M365 tenant migration &nbsp;|&nbsp; Exchange Online &nbsp;|&nbsp; PowerShell &nbsp;|&nbsp; Microsoft Graph</p>
+      <p class="proj-hero-eyebrow">Portfolio &nbsp;/&nbsp; Automation &amp; Process Engineering</p>
+      <h1 class="proj-hero-title">M365 Consolidation Automation Pipeline</h1>
+      <p class="proj-hero-sub">PowerShell &nbsp;|&nbsp; Exchange Online &nbsp;|&nbsp; Microsoft Graph &nbsp;|&nbsp; M365 Tenant Consolidation</p>
       <div class="proj-tags">
         <span class="proj-tag">PowerShell</span>
+        <span class="proj-tag">Automation</span>
         <span class="proj-tag">Exchange Online</span>
         <span class="proj-tag">Microsoft Graph</span>
-        <span class="proj-tag">Process Design</span>
         <span class="proj-tag">M365 Groups</span>
-        <span class="proj-tag">Mailbox Migration</span>
+        <span class="proj-tag">Process Engineering</span>
+        <span class="proj-tag">Tenant Consolidation</span>
+        <span class="proj-tag">Change Management</span>
       </div>
     </div>
   </div>
-
-  <!-- ── Problem ───────────────────────────────────────────────── -->
+  <!-- ── BACKGROUND ────────────────────────────────────────────── -->
   <div class="vp-dark-band">
     <div class="container">
       <div class="vp-section vp-on-dark">
@@ -249,7 +181,7 @@
         <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">The Problem</h2>
         <hr class="vp-rule">
         <p class="port-p" data-aos="fade-up" data-aos-delay="100">
-          During a large-scale M365 tenant migration spanning 200+ locations, hundreds of shared mailboxes,
+          During a large-scale M365 tenant consolidation spanning 200+ locations, hundreds of shared mailboxes,
           distribution lists, M365 groups, and resource accounts needed to be consolidated, renamed, or
           decommissioned across domain transitions. Each object type required a different disposition:
           rename it, delete it, consolidate it into another account, move its email aliases elsewhere, or leave it alone.
@@ -257,7 +189,8 @@
         <p class="port-p" data-aos="fade-up" data-aos-delay="115">
           The original process relied on decisions made verbally or from memory during execution. That led to
           inconsistencies, missed accounts, and mistakes that required manual remediation. The same decisions
-          got relitigated across every migration wave because nothing was formally documented until after the fact.
+          got relitigated across every consolidation wave because nothing was formally documented until after the fact.
+          The answer was not better documentation after the fact. It was automation that enforced the process before anything ran.
         </p>
         <div class="vp-before-after" data-aos="fade-up" data-aos-delay="140">
           <div class="vp-ba-card before">
@@ -284,42 +217,41 @@
       </div>
     </div>
   </div>
-
-  <!-- ── Pipeline ──────────────────────────────────────────────── -->
+  <!-- ── HOW IT WORKS ──────────────────────────────────────────── -->
   <div id="pipeline-section">
     <div class="container">
       <div class="vp-section vp-on-light">
-        <p class="vp-eyebrow" data-aos="fade-up">How It Works</p>
-        <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">Three-Stage Pipeline</h2>
+        <p class="vp-eyebrow" data-aos="fade-up">Architecture</p>
+        <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">Three-Stage Automation Pipeline</h2>
         <hr class="vp-rule">
         <p class="port-p" data-aos="fade-up" data-aos-delay="100">
-          The architecture separates <strong>planning</strong>, <strong>review</strong>, and <strong>execution</strong>
-          into distinct stages with an enforced checkpoint between each. No changes reach the environment until the
-          action plan has been reviewed and confirmed.
+          The pipeline separates <strong>discovery</strong>, <strong>planning</strong>, and <strong>execution</strong>
+          into three distinct stages with an enforced human review checkpoint between planning and execution.
+          No changes reach the environment until the full action plan has been reviewed and confirmed.
+          Each stage is a standalone PowerShell script that can be rerun independently.
         </p>
         <div class="vp-pipeline" data-aos="fade-up" data-aos-delay="140">
           <div class="vp-pipeline-stage">
             <div class="vp-stage-number">Stage 1</div>
             <div class="vp-stage-title">Planner Script</div>
-            <p class="vp-stage-desc">Performs automated discovery of all shared mailboxes, distribution lists, M365 groups, and resource accounts across target domains via Exchange Online PowerShell. Generates a structured Excel workbook: a full inventory sheet and a planning sheet with per-account-type dropdown menus and formula-driven columns that auto-populate based on the selected plan.</p>
+            <p class="vp-stage-desc">Connects to Exchange Online and performs automated discovery of all shared mailboxes, distribution lists, M365 groups, and resource accounts across target domains. Outputs a structured Excel workbook with a full inventory sheet and a planning sheet with per-account-type dropdown menus and formula-driven columns that auto-populate based on the selected plan.</p>
           </div>
           <div class="vp-pipeline-stage">
             <div class="vp-stage-number">Stage 2</div>
             <div class="vp-stage-title">Stamp Script</div>
-            <p class="vp-stage-desc">Reads the completed planning sheet and translates every plan selection into a structured, human-readable action list showing exactly what will happen to each account before anything is touched. Output is meant to be reviewed and confirmed before proceeding, and shared with stakeholders if needed.</p>
+            <p class="vp-stage-desc">Reads the completed planning sheet and translates every plan selection into a structured, human-readable action list showing exactly what will happen to each account before anything is touched. Output is reviewed and confirmed by stakeholders before proceeding. Also auto-generates migration tool import rows for any consolidation plans.</p>
           </div>
           <div class="vp-pipeline-stage">
             <div class="vp-stage-number">Stage 3</div>
             <div class="vp-stage-title">Apply Script</div>
-            <p class="vp-stage-desc">Executes the approved action plan idempotently, in a defined phase order. Renames accounts, updates email addresses, moves aliases, copies permissions, handles consolidations, creates inbox rules, and removes accounts marked for deletion, consistently and without manual intervention.</p>
+            <p class="vp-stage-desc">Executes the approved action plan idempotently, in a defined phase order. Renames accounts, updates email addresses, moves aliases, copies permissions, handles consolidations, creates inbox rules, and removes accounts marked for deletion, without manual intervention at any step.</p>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- ── Planning Workbook ─────────────────────────────────────── -->
-  <div class="vp-dark-band">
+  <!-- ── PLANNING WORKBOOK ─────────────────────────────────────── -->
+  <div class="vp-dark-band" id="planner-section">
     <div class="container">
       <div class="vp-section vp-on-dark">
         <p class="vp-eyebrow" data-aos="fade-up">Stage 1 Detail</p>
@@ -330,7 +262,7 @@
           A shared mailbox has different valid plans than a distribution list or an M365 group, so the dropdown
           only shows options that are actually applicable. Once a plan is selected, the New Display Name, New Email,
           and Notes columns auto-populate with either a calculated value, a placeholder prompting for remaining
-          input, or a warning flagging something that requires manual attention before Apply runs.
+          input, or a warning flagging something that needs manual attention before Apply runs.
         </p>
         <div data-aos="fade-up" data-aos-delay="140">
           <div class="vp-excel-mockup">
@@ -402,8 +334,7 @@
       </div>
     </div>
   </div>
-
-  <!-- ── Action Plan ───────────────────────────────────────────── -->
+  <!-- ── ACTION PLAN ───────────────────────────────────────────── -->
   <div id="stamp-section">
     <div class="container">
       <div class="vp-section vp-on-light">
@@ -416,46 +347,46 @@
           deletes and depreciations before they can be copied to target accounts, and inbox rules are always
           created last so the folder structure is in place when they run.
         </p>
-        <div class="vp-exec-order" data-aos="fade-up" data-aos-delay="120">
-          <div class="vp-exec-row">
-            <div class="vp-exec-phase">Phase 0</div>
-            <div class="vp-exec-label">Manual Warnings</div>
-            <div class="vp-exec-desc">Logged reminders for anything marked "Other", flagged for review and not executed automatically.</div>
+        <div class="vp-flow" data-aos="fade-up" data-aos-delay="120">
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Phase 0</div>
+            <div class="vp-flow-label">Manual Warnings</div>
+            <div class="vp-flow-desc">Logged reminders for anything marked "Other," flagged for review and not executed automatically. Surfaces edge cases before execution begins.</div>
           </div>
-          <div class="vp-exec-row">
-            <div class="vp-exec-phase">Phase 1</div>
-            <div class="vp-exec-label">Delete</div>
-            <div class="vp-exec-desc">Removes accounts flagged for deletion. Frees their email aliases so they can be reassigned downstream.</div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Phase 1</div>
+            <div class="vp-flow-label">Delete</div>
+            <div class="vp-flow-desc">Removes accounts flagged for deletion. Frees their email aliases so they can be reassigned downstream without conflicts.</div>
           </div>
-          <div class="vp-exec-row">
-            <div class="vp-exec-phase">Phase 2</div>
-            <div class="vp-exec-label">Rename</div>
-            <div class="vp-exec-desc">Updates primary email and display name on accounts being kept. The original email is retained as an alias automatically.</div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Phase 2</div>
+            <div class="vp-flow-label">Rename</div>
+            <div class="vp-flow-desc">Updates primary email and display name on accounts being kept. The original email address is retained as an alias automatically.</div>
           </div>
-          <div class="vp-exec-row">
-            <div class="vp-exec-phase">Phase 3</div>
-            <div class="vp-exec-label">Depreciate</div>
-            <div class="vp-exec-desc">For M365 groups with an active SharePoint site: strips all aliases, renames to a depreciated address, preserves the group so the SP site stays accessible through the transition.</div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Phase 3</div>
+            <div class="vp-flow-label">Depreciate</div>
+            <div class="vp-flow-desc">For M365 groups with an active SharePoint site: strips all aliases, renames to a depreciated address, preserves the group so the SharePoint site stays accessible through the transition period.</div>
           </div>
-          <div class="vp-exec-row">
-            <div class="vp-exec-phase">Phase 4</div>
-            <div class="vp-exec-label">Copy Aliases</div>
-            <div class="vp-exec-desc">Adds freed aliases to target accounts. Runs after deletes and depreciations to avoid address conflicts.</div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Phase 4</div>
+            <div class="vp-flow-label">Copy Aliases</div>
+            <div class="vp-flow-desc">Adds freed aliases to target accounts. Runs after deletes and depreciations to guarantee no address conflicts exist at copy time.</div>
           </div>
-          <div class="vp-exec-row">
-            <div class="vp-exec-phase">Phase 5</div>
-            <div class="vp-exec-label">Copy Members</div>
-            <div class="vp-exec-desc">Copies group and DL members and owners to targets. Cross-type aware: the operation applied depends on whether the target is a shared mailbox, a group, or a DL.</div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Phase 5</div>
+            <div class="vp-flow-label">Copy Members</div>
+            <div class="vp-flow-desc">Copies group and DL members and owners to target accounts. Cross-type aware: the correct operation is resolved at runtime based on whether the target is a shared mailbox, group, or distribution list.</div>
           </div>
-          <div class="vp-exec-row">
-            <div class="vp-exec-phase">Phase 6</div>
-            <div class="vp-exec-label">Copy Permissions</div>
-            <div class="vp-exec-desc">Copies FullAccess, SendAs, and SendOnBehalf permissions from consolidated shared mailboxes to the target account.</div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Phase 6</div>
+            <div class="vp-flow-label">Copy Permissions</div>
+            <div class="vp-flow-desc">Copies FullAccess, SendAs, and SendOnBehalf permissions from consolidated shared mailboxes to the target account.</div>
           </div>
-          <div class="vp-exec-row">
-            <div class="vp-exec-phase">Phase 7</div>
-            <div class="vp-exec-label">Inbox Rules</div>
-            <div class="vp-exec-desc">Creates a labelled folder and inbox rule on the target for each source account. Never merged; each source always gets its own rule and folder, regardless of how many are pointing to the same target.</div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Phase 7</div>
+            <div class="vp-flow-label">Inbox Rules</div>
+            <div class="vp-flow-desc">Creates a labeled folder and inbox rule on the target for each source account. Never merged: each source always gets its own rule and folder, regardless of how many are pointing to the same target.</div>
           </div>
         </div>
         <p class="port-p" data-aos="fade-up" data-aos-delay="130" style="margin-top:1rem;">
@@ -523,23 +454,22 @@
       </div>
     </div>
   </div>
-
-  <!-- ── Design Decisions ──────────────────────────────────────── -->
-  <div class="vp-dark-band">
+  <!-- ── DESIGN DECISIONS ──────────────────────────────────────── -->
+  <div class="vp-dark-band" id="decisions">
     <div class="container">
       <div class="vp-section vp-on-dark">
         <p class="vp-eyebrow" data-aos="fade-up">Engineering Details</p>
         <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">Design Decisions Worth Noting</h2>
         <hr class="vp-rule">
         <p class="port-p" data-aos="fade-up" data-aos-delay="100">
-          A few of the non-obvious engineering constraints that shaped the design:
+          A few non-obvious engineering constraints shaped the design:
         </p>
         <div class="vp-nuance-list" data-aos="fade-up" data-aos-delay="130">
           <div class="vp-nuance-item">
             <div class="vp-nuance-left"><span class="vp-nuance-tag">Migration Tooling Sync</span></div>
             <div class="vp-nuance-right">
               <div class="vp-nuance-title">Consolidation automatically generates migration tool import rows</div>
-              <p>When a shared mailbox is marked for consolidation, the scripts handle the Exchange-side work: aliases, permissions, inbox rules. But the mailbox data itself has to move via separate tooling. Rather than managing that list manually, the Stamp script was designed to auto-generate an import row for every Consolidation plan, keeping the migration job queue in sync with the action plan with no extra step.</p>
+              <p>When a shared mailbox is marked for consolidation, the scripts handle the Exchange-side work: aliases, permissions, inbox rules. The mailbox data itself has to move via separate tooling. Rather than managing that list manually, the Stamp script auto-generates an import row for every Consolidation plan, keeping the migration job queue in sync with the action plan with no extra step.</p>
             </div>
           </div>
           <div class="vp-nuance-item">
@@ -552,19 +482,51 @@
           <div class="vp-nuance-item">
             <div class="vp-nuance-left"><span class="vp-nuance-tag">SharePoint Preservation</span></div>
             <div class="vp-nuance-right">
-              <div class="vp-nuance-title">M365 groups with active SP sites depreciated, not deleted</div>
-              <p>Deleting an M365 group deletes its SharePoint site with it. For groups where SP content needs to stay accessible, the depreciation plans keep the group alive in a stripped state: aliases removed, email and display name updated to signal deprecated status, so the SharePoint site remains reachable through the transition period without blocking alias reassignment.</p>
+              <div class="vp-nuance-title">M365 groups with active SharePoint sites depreciated, not deleted</div>
+              <p>Deleting an M365 group deletes its SharePoint site with it. For groups where SharePoint content needs to stay accessible, the depreciation plans keep the group alive in a stripped state: aliases removed, email and display name updated to signal deprecated status, so the SharePoint site remains reachable through the transition period without blocking alias reassignment.</p>
             </div>
           </div>
         </div>
       </div>
     </div>
   </div>
-
-  <!-- ── My Role ───────────────────────────────────────────────── -->
-  <div id="role-section">
+  <!-- ── WHAT THIS DEMONSTRATES ────────────────────────────────── -->
+  <div id="demonstrates">
     <div class="container">
       <div class="vp-section vp-on-light">
+        <p class="vp-eyebrow" data-aos="fade-up">Takeaways</p>
+        <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">What This Demonstrates</h2>
+        <hr class="vp-rule">
+        <p class="port-p" data-aos="fade-up" data-aos-delay="100">
+          Migrations fail at the planning layer, not the execution layer. This pipeline addresses that
+          directly by encoding the decision logic into the tooling itself rather than relying on human
+          consistency at runtime.
+        </p>
+        <div class="vp-demonstrates-grid" data-aos="fade-up" data-aos-delay="120">
+          <div class="vp-demo-card">
+            <div class="vp-demo-card-title">Automation that enforces process</div>
+            <p>The pipeline does not just automate tasks. It enforces a specific order of operations and gates execution behind a human-reviewed plan, so the process is consistent regardless of who runs it or when.</p>
+          </div>
+          <div class="vp-demo-card">
+            <div class="vp-demo-card-title">Idempotent, safe execution</div>
+            <p>The Apply script is designed to be rerun safely. It resolves the current state of each account at runtime and only makes changes that are still needed, so partial runs and reruns do not produce duplicate or conflicting changes.</p>
+          </div>
+          <div class="vp-demo-card">
+            <div class="vp-demo-card-title">Stakeholder-facing output</div>
+            <p>The planning workbook and action plan output are designed to be handed to stakeholders for review, not just used internally. Non-technical decision makers can approve or flag accounts without needing to understand the underlying scripts.</p>
+          </div>
+          <div class="vp-demo-card">
+            <div class="vp-demo-card-title">Reusable across migration waves</div>
+            <p>The pipeline was built for a 200+ location consolidation with multiple waves. Rerunning Stage 1 on a new domain set produces a fresh planning workbook in the same format, so the same review and execution process applies every time without rebuilding anything.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── MY ROLE ───────────────────────────────────────────────── -->
+  <div class="vp-dark-band" id="role-section">
+    <div class="container">
+      <div class="vp-section vp-on-dark">
         <p class="vp-eyebrow" data-aos="fade-up">My Role</p>
         <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">Engineering Approach</h2>
         <hr class="vp-rule">
@@ -578,14 +540,15 @@
           with the generated action plan.
           <br><br>
           Once the system design was fully specified, I used Claude to assist with writing the PowerShell
-          implementation. The AI received a detailed technical spec describing the expected system behavior and
+          implementation. The AI received a detailed technical spec describing expected system behavior and
           outputs. No tenant data, credentials, or internal configuration details were included in those
-          conversations. A key part of the process was then validating and refining the generated code: reviewing
-          logic paths, testing edge cases, and confirming the scripts behave as intended before anything runs in
-          a live environment.
+          conversations. A key part of the process was then validating and refining the generated code:
+          reviewing logic paths, testing edge cases, and confirming the scripts behave as intended before
+          anything ran in a live environment.
           <br><br>
           This workflow lets me move faster without giving up ownership of the design or the result. The
-          automation reduces manual effort, enforces consistent processes, and makes complex migrations repeatable.
+          automation reduces manual effort, enforces consistent processes, and makes complex consolidations
+          repeatable at scale.
         </div>
         <div class="vp-skill-group" data-aos="fade-up" data-aos-delay="140">
           <span class="vp-skill-label">Tools &amp; Technologies</span>
@@ -594,10 +557,10 @@
             <span class="vp-chip vp-chip--core">Exchange Online</span>
             <span class="vp-chip vp-chip--core">Microsoft Graph API</span>
             <span class="vp-chip vp-chip--core">M365 Groups</span>
-            <span class="vp-chip vp-chip--iam">Entra ID / PIM</span>
-            <span class="vp-chip vp-chip--iam">ImportExcel Module</span>
-            <span class="vp-chip vp-chip--core">Mailbox Migration Tooling</span>
-            <span class="vp-chip vp-chip--process">Process Design</span>
+            <span class="vp-chip vp-chip--iam">Entra ID</span>
+            <span class="vp-chip vp-chip--core">ImportExcel Module</span>
+            <span class="vp-chip vp-chip--core">M365 Consolidation Tooling</span>
+            <span class="vp-chip vp-chip--process">Process Engineering</span>
             <span class="vp-chip vp-chip--process">Change Management</span>
             <span class="vp-chip vp-chip--process">Stakeholder Communication</span>
           </div>
@@ -605,8 +568,7 @@
       </div>
     </div>
   </div>
-
-  <!-- ── Footer ───────────────────────────────────────────────── -->
+  <!-- ── FOOTER ────────────────────────────────────────────────── -->
   <div class="site-footer">
     <div class="container">
       <p class="vp-footer-credit">
@@ -615,13 +577,11 @@
       </p>
     </div>
   </div>
-
   <script src="js/jquery-3.4.1.min.js"></script>
   <script src="js/popper.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
   <script src="js/aos.js"></script>
   <script src="js/jquery.easing.1.3.js"></script>
   <script src="js/custom.js"></script>
-
 </body>
 </html>

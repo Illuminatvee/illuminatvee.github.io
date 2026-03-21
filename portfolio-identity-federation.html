@@ -1,0 +1,704 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="author" content="Valerie Perez">
+  <link rel="shortcut icon" href="images/favicon.ico">
+  <meta name="description" content="Bidirectional Enterprise Federation: Entra ID, Okta, Salesforce, ServiceNow - Portfolio project by Valerie Perez" />
+  <title>Bidirectional Enterprise Federation | Valerie Perez</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=PT+Mono&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="fonts/icomoon/style.css">
+  <link rel="stylesheet" href="fonts/flaticon/font/flaticon.css">
+  <link rel="stylesheet" href="css/aos.css">
+  <link rel="stylesheet" href="css/style.css">
+  <style>
+    /* ── Hero ─────────────────────────────────────────────── */
+    .proj-hero { background: #2a2535; padding: 64px 0 52px; text-align: center; }
+    .proj-hero-eyebrow { font-family: "PT Mono", monospace; font-size: 10px; letter-spacing: .18em; text-transform: uppercase; color: #8a81a3; margin-bottom: 12px; }
+    .proj-hero-title { font-family: "Montserrat", sans-serif; font-size: 36px; font-weight: 700; color: #f0eef8; line-height: 1.15; margin-bottom: 14px; }
+    @media (max-width: 767.98px) { .proj-hero-title { font-size: 24px; } }
+    .proj-hero-sub { font-family: "PT Mono", monospace; font-size: 12px; color: #b2afc8; margin-bottom: 24px; }
+    .proj-tags { display: flex; flex-wrap: wrap; gap: 8px; justify-content: center; }
+    .proj-tag { font-family: "PT Mono", monospace; font-size: 11px; color: #c0bcd4; border: 1px solid rgba(192,188,212,0.35); border-radius: 4px; padding: 4px 11px; }
+    /* ── Scenario overview cards ──────────────────────────── */
+    .vp-scenario-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 2rem 0; }
+    .vp-scenario-card { border-radius: 8px; padding: 1.25rem 1.4rem; border: 1.5px solid rgba(107,97,144,0.3); background: rgba(107,97,144,0.08); }
+    .vp-scenario-label { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: #9d96b8; margin-bottom: 0.5rem; }
+    .vp-scenario-title { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.92rem; color: #f0eef8; margin-bottom: 0.5rem; }
+    .vp-scenario-card p { font-size: 0.82rem; font-family: "PT Mono", monospace; color: #b2afc8; line-height: 1.65; margin: 0; }
+    /* ── Diagram wrapper ──────────────────────────────────── */
+    .vp-diagram-wrap { background: #f8f7fc; border: 1px solid rgba(107,97,144,0.18); border-radius: 8px; padding: 1.5rem 1rem; margin: 1.5rem 0; overflow-x: auto; }
+    .vp-diagram-wrap.dark { background: #1e1b2e; border-color: rgba(107,97,144,0.25); }
+    .vp-diagram-caption { font-family: "PT Mono", monospace; font-size: 0.72rem; color: #8a81a3; text-align: center; margin-top: 0.6rem; font-style: italic; }
+    /* ── Flow rows ────────────────────────────────────────── */
+    .vp-flow { display: flex; flex-direction: column; margin: 1.5rem 0; }
+    .vp-flow-row { display: flex; align-items: flex-start; gap: 1rem; padding: 0.65rem 0; border-bottom: 1px solid rgba(107,97,144,0.15); }
+    .vp-flow-row:last-child { border-bottom: none; }
+    .vp-flow-step { font-family: "PT Mono", monospace; font-size: 0.72rem; font-weight: 700; color: #6b6190; min-width: 70px; padding-top: 2px; }
+    .vp-flow-label { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.8rem; color: #2a2535; min-width: 165px; }
+    .vp-flow-desc { font-size: 0.8rem; font-family: "PT Mono", monospace; color: #6b6585; line-height: 1.55; }
+    /* ── Comparison table ─────────────────────────────────── */
+    .vp-compare-wrap { overflow-x: auto; margin: 1.5rem 0; }
+    .vp-compare-table { width: 100%; border-collapse: collapse; font-family: "PT Mono", monospace; font-size: 0.79rem; min-width: 560px; }
+    .vp-compare-table th { padding: 9px 14px; font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.05em; text-transform: uppercase; text-align: left; }
+    .vp-compare-table th.col-dim { background: #2a2535; color: #9d96b8; width: 24%; }
+    .vp-compare-table th.col-a { background: #3d3558; color: #c0bcd4; }
+    .vp-compare-table th.col-b { background: #1a3530; color: #8ecfbb; }
+    .vp-compare-table td { padding: 8px 14px; border-bottom: 1px solid rgba(107,97,144,0.12); vertical-align: top; line-height: 1.6; }
+    .vp-compare-table td.col-dim { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.72rem; color: #6b6190; background: #f8f7fc; }
+    .vp-compare-table td.col-a { color: #3d3558; }
+    .vp-compare-table td.col-b { color: #3d3558; background: #f2fdf8; }
+    .vp-compare-table tr:last-child td { border-bottom: none; }
+    /* ── When to use cards ────────────────────────────────── */
+    .vp-use-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.2rem; margin: 1.5rem 0; }
+    .vp-use-card { border-radius: 8px; padding: 1.25rem 1.4rem; }
+    .vp-use-card.scen-a { background: #f0eef8; border: 1.5px solid #a49bc8; }
+    .vp-use-card.scen-b { background: #e8f5f0; border: 1.5px solid #8ecfbb; }
+    .vp-use-label { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 0.65rem; }
+    .vp-use-card.scen-a .vp-use-label { color: #4a3d7a; }
+    .vp-use-card.scen-b .vp-use-label { color: #2a8a72; }
+    .vp-use-card ul { margin: 0; padding-left: 1.1rem; font-size: 0.82rem; font-family: "PT Mono", monospace; color: #3d3558; line-height: 1.75; }
+    /* ── Nuance / decisions list ──────────────────────────── */
+    .vp-nuance-list { margin: 2rem 0; }
+    .vp-nuance-item { display: flex; gap: 2rem; padding: 1.4rem 0; border-bottom: 1px solid rgba(107,97,144,0.2); align-items: flex-start; }
+    .vp-nuance-item:last-child { border-bottom: none; }
+    .vp-nuance-left { width: 180px; flex-shrink: 0; padding-top: 2px; }
+    .vp-nuance-tag { display: inline-block; background: rgba(107,97,144,0.15); color: #4a3d7a; font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.68rem; letter-spacing: 0.06em; text-transform: uppercase; padding: 4px 10px; border-radius: 4px; border: 1px solid rgba(107,97,144,0.45); }
+    .vp-nuance-right { flex: 1; }
+    .vp-nuance-title { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.88rem; color: #2a2535; margin-bottom: 0.45rem; }
+    .vp-nuance-right p { font-size: 0.82rem; font-family: "PT Mono", monospace; color: #6b6585; line-height: 1.65; margin: 0; }
+    /* ── What this demonstrates ───────────────────────────── */
+    .vp-demonstrates-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1rem; margin: 1.5rem 0; }
+    .vp-demo-card { background: rgba(107,97,144,0.08); border: 1px solid rgba(107,97,144,0.22); border-radius: 8px; padding: 1rem 1.2rem; }
+    .vp-demo-card-title { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.8rem; color: #2a2535; margin-bottom: 0.35rem; }
+    .vp-demo-card p { font-family: "PT Mono", monospace; font-size: 0.78rem; color: #6b6585; line-height: 1.6; margin: 0; }
+    /* ── Role callout ─────────────────────────────────────── */
+    .vp-role-callout { background: #eeecf6; border-left: 4px solid #6b6190; border-radius: 0 8px 8px 0; padding: 1.1rem 1.4rem; margin: 2rem 0; font-size: 0.88rem; font-family: "PT Mono", monospace; color: #3d3558; line-height: 1.65; }
+    .vp-role-callout strong { color: #2a2535; font-family: "Montserrat", sans-serif; }
+    .vp-tech-chips { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.75rem; justify-content: center; }
+    .vp-skill-group { text-align: center; }
+    /* ── Screenshot slots ─────────────────────────────────── */
+    .vp-screenshot-slot { border: 1.5px dashed rgba(107,97,144,0.4); border-radius: 8px; padding: 1.75rem; margin: 1rem 0; text-align: center; background: rgba(107,97,144,0.05); }
+    .vp-screenshot-slot p { font-family: "PT Mono", monospace; font-size: 0.75rem; color: #8a81a3; margin: 0; }
+    .vp-screenshot-slot .ss-label { font-family: "Montserrat", sans-serif; font-weight: 700; font-size: 0.7rem; letter-spacing: 0.08em; text-transform: uppercase; color: #6b6190; margin-bottom: 0.4rem; }
+    .vp-screenshots-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin: 1.5rem 0; }
+    .vp-screenshot-slot { background: rgba(107,97,144,0.08); border: 1px solid rgba(107,97,144,0.22); border-radius: 8px; overflow: hidden; }
+    .vp-dark-band .vp-screenshot-slot { background: rgba(107,97,144,0.18); border-color: rgba(107,97,144,0.38); }
+    .vp-ss-thumb { position: relative; height: 180px; overflow: hidden; cursor: zoom-in; }
+    .vp-ss-thumb::after { content: "⤢"; position: absolute; top: 7px; right: 9px; font-size: 14px; color: #fff; background: rgba(42,37,53,0.65); border-radius: 4px; padding: 1px 5px; opacity: 0; transition: opacity 0.18s; pointer-events: none; }
+    .vp-ss-thumb:hover::after { opacity: 1; }
+    .vp-ss-img { width: 100%; height: 100%; object-fit: cover; object-position: top; display: block; border-bottom: 1px solid rgba(107,97,144,0.22); transition: transform 0.22s ease; }
+    .vp-ss-thumb:hover .vp-ss-img { transform: scale(1.03); }
+    .vp-ss-cap { font-family: "PT Mono", monospace; font-size: 0.72rem; color: #8a81a3; padding: 0.5rem 0.8rem 0.65rem; margin: 0; line-height: 1.5; }
+    .vp-dark-band .vp-ss-cap { color: #9d96b8; }
+    /* ── Lightbox ─────────────────────────────────────────── */
+    #vp-lightbox { display: none; position: fixed; inset: 0; z-index: 9999; background: rgba(18,14,30,0.92); align-items: center; justify-content: center; padding: 1.5rem; }
+    #vp-lightbox.open { display: flex; }
+    #vp-lightbox img { max-width: 100%; max-height: 90vh; border-radius: 6px; box-shadow: 0 8px 48px rgba(0,0,0,0.7); }
+    #vp-lightbox-close { position: fixed; top: 1rem; right: 1.2rem; font-size: 1.6rem; color: #c0bcd4; cursor: pointer; line-height: 1; background: none; border: none; padding: 0; }
+    #vp-lightbox-close:hover { color: #fff; }
+    #vp-lightbox-cap { position: fixed; bottom: 1.2rem; left: 50%; transform: translateX(-50%); font-family: "PT Mono", monospace; font-size: 0.75rem; color: #9d96b8; text-align: center; max-width: 640px; }
+    /* ── Inline code ─────────────────────────────────────── */
+    code { font-family: "PT Mono", monospace; font-size: 0.82em; color: #6b6190; background: rgba(107,97,144,0.12); padding: 1px 5px; border-radius: 3px; }
+    /* ── General prose ────────────────────────────────────── */
+    .port-p { font-family: "PT Mono", monospace; font-size: 13px; color: #3d3558; line-height: 1.8; margin-bottom: 14px; }
+    .vp-dark-band .port-p { color: #c0bcd4; }
+    /* ── Dark band overrides ──────────────────────────────── */
+    html body .vp-dark-band                     { background: #2a2535 !important; }
+    html body .vp-dark-band .vp-section-heading { color: #f0eef8 !important; }
+    html body .vp-dark-band .vp-eyebrow         { color: #9d96b8 !important; }
+    html body .vp-dark-band .vp-rule            { border-top-color: #6b6190 !important; }
+    /* Dark band text overrides for flow rows (Scenario B) */
+    .vp-dark-band .vp-flow-step  { color: #8a81a3; }
+    .vp-dark-band .vp-flow-label { color: #c0bcd4; }
+    .vp-dark-band .vp-flow-desc  { color: #9d96b8; }
+    .vp-dark-band .vp-flow-row   { border-bottom-color: rgba(107,97,144,0.25); }
+    /* Dark band overrides for demo cards (What This Demonstrates) */
+    .vp-dark-band .vp-demo-card         { background: rgba(107,97,144,0.22); border-color: rgba(107,97,144,0.38); }
+    .vp-dark-band .vp-demo-card-title   { color: #f0eef8; }
+    .vp-dark-band .vp-demo-card p       { color: #c0bcd4; }
+    /* ── Mobile ───────────────────────────────────────────── */
+    @media (max-width: 768px) {
+      .vp-scenario-grid, .vp-use-grid, .vp-demonstrates-grid, .vp-screenshots-row { grid-template-columns: 1fr; }
+      .vp-nuance-item { flex-direction: column; gap: 0.75rem; }
+      .vp-nuance-left { min-width: unset; }
+      .vp-flow-row { flex-wrap: wrap; }
+      .vp-compare-table { font-size: 0.72rem; }
+    }
+  </style>
+</head>
+<body data-spy="scroll" data-target=".site-navbar-target" data-offset="100">
+  <div class="lines-wrap"><div class="lines-inner"><div class="lines"></div></div></div>
+  <div class="site-mobile-menu site-navbar-target">
+    <div class="site-mobile-menu-header">
+      <div class="site-mobile-menu-close"><span class="icofont-close js-menu-toggle"></span></div>
+    </div>
+    <div class="site-mobile-menu-body"></div>
+  </div>
+  <nav class="site-nav dark mb-5 site-navbar-target">
+    <div class="container">
+      <div class="site-navigation">
+        <ul class="js-clone-nav d-none d-lg-block site-menu">
+          <li><a href="index.html#home-section" class="nav-link">Home</a></li>
+          <li><a href="index.html#education-section">Education &amp; Certs</a></li>
+          <li><a href="index.html#skills-section">My Skills</a></li>
+          <li><a href="index.html#about-section">About Me</a></li>
+          <li class="has-children">
+            <a href="#">Portfolio</a>
+            <ul class="dropdown">
+              <li><a href="portfolio-identity-federation.html">Bidirectional Enterprise Federation</a></li>
+              <li><a href="portfolio-rebranding-tool.html">M365 Consolidation Automation Pipeline</a></li>
+            </ul>
+          </li>
+        </ul>
+        <a href="#" class="burger ml-auto site-menu-toggle js-menu-toggle d-inline-block d-lg-none" data-toggle="collapse" data-target="#main-navbar"><span></span></a>
+      </div>
+    </div>
+  </nav>
+  <!-- ── HERO ──────────────────────────────────────────────────── -->
+  <div class="proj-hero">
+    <div class="container">
+      <p class="proj-hero-eyebrow">Portfolio &nbsp;/&nbsp; Identity &amp; Access Management</p>
+      <h1 class="proj-hero-title">Bidirectional Enterprise Federation:<br>Entra ID + Okta + Salesforce + ServiceNow</h1>
+      <p class="proj-hero-sub">Two complementary SSO architectures. Two trust models. One comparison of when each is the right choice.</p>
+      <div class="proj-tags">
+        <span class="proj-tag">Microsoft Entra ID</span>
+        <span class="proj-tag">Okta</span>
+        <span class="proj-tag">Salesforce</span>
+        <span class="proj-tag">ServiceNow</span>
+        <span class="proj-tag">SAML 2.0</span>
+        <span class="proj-tag">SCIM 2.0</span>
+        <span class="proj-tag">OIDC</span>
+        <span class="proj-tag">SSO</span>
+        <span class="proj-tag">User Lifecycle</span>
+        <span class="proj-tag">Identity Federation</span>
+      </div>
+    </div>
+  </div>
+  <!-- ── OVERVIEW ──────────────────────────────────────────────── -->
+  <div class="vp-dark-band">
+    <div class="container">
+      <div class="vp-section vp-on-dark">
+        <p class="vp-eyebrow" data-aos="fade-up">Background</p>
+        <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">What Was Built</h2>
+        <hr class="vp-rule">
+        <p class="port-p" data-aos="fade-up" data-aos-delay="100">
+          Enterprise identity environments rarely follow a single pattern. Some organizations run Microsoft-first,
+          with Entra ID as the authoritative directory and Okta layered on top as a SaaS access broker. Others
+          are Okta-first, using it as the central control plane while Microsoft exists as one of many downstream
+          targets. Both patterns are common, both require different federation designs, and both show up in real
+          migration, acquisition, and modernization projects.
+        </p>
+        <p class="port-p" data-aos="fade-up" data-aos-delay="115">
+          This lab deliberately implements both. Scenario A builds the Microsoft-first architecture: Entra ID as
+          source of truth, Okta as broker, Salesforce as the federated SP. Scenario B inverts it: Okta as the
+          authoritative identity store, Entra ID as the identity bridge and IdP, ServiceNow as the SP. Both
+          deliver the same end-user result, federated SSO with automated lifecycle management, through
+          architecturally distinct chains.
+        </p>
+        <div class="vp-scenario-grid" data-aos="fade-up" data-aos-delay="140">
+          <div class="vp-scenario-card">
+            <div class="vp-scenario-label">Scenario A</div>
+            <div class="vp-scenario-title">Entra ID as source of truth, Okta as broker</div>
+            <p>Entra ID authenticates users via OIDC to Okta. Okta acts as the identity broker, handling SAML SSO and SCIM provisioning to Salesforce. Three-layer chain, Microsoft-first posture.</p>
+          </div>
+          <div class="vp-scenario-card">
+            <div class="vp-scenario-label">Scenario B</div>
+            <div class="vp-scenario-title">Okta as source of truth, Entra as identity bridge</div>
+            <p>Okta owns the user lifecycle and provisions accounts into Entra ID via SCIM. Entra then handles SAML SSO and SCIM provisioning to ServiceNow directly. Okta is not involved in the downstream leg at all.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── SCENARIO A ────────────────────────────────────────────── -->
+  <div id="scenario-a">
+    <div class="container">
+      <div class="vp-section vp-on-light">
+        <p class="vp-eyebrow" data-aos="fade-up">Scenario A</p>
+        <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">Entra ID as Source of Truth</h2>
+        <hr class="vp-rule">
+        <p class="port-p" data-aos="fade-up" data-aos-delay="100">
+          Entra ID is the authoritative identity store. Okta sits in the middle as a broker, receiving
+          authenticated identities from Entra via OIDC and federating them downstream to Salesforce via
+          SAML. Okta also handles SCIM provisioning to Salesforce, so the full user lifecycle flows
+          through Okta's provisioning engine. This is the Microsoft-first pattern: Entra enforces the
+          access gate and Conditional Access policies, Okta adds SaaS brokering capability on top.
+        </p>
+        <div class="vp-diagram-wrap" data-aos="fade-up" data-aos-delay="120">
+          <svg width="100%" viewBox="0 0 600 390" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="arA" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="#6b6190" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+            <!-- Entra -->
+            <rect x="180" y="24" width="240" height="62" rx="8" fill="#eeecf6" stroke="#a49bc8" stroke-width="1.5"/>
+            <text font-family="Montserrat, sans-serif" font-weight="700" font-size="13" fill="#2a2535" x="300" y="49" text-anchor="middle">Microsoft Entra ID</text>
+            <text font-family="PT Mono, monospace" font-size="11" fill="#6b6190" x="300" y="68" text-anchor="middle">Source of truth / IdP (P2)</text>
+            <!-- Arrow down -->
+            <line x1="300" y1="86" x2="300" y2="138" stroke="#6b6190" stroke-width="1.2" marker-end="url(#arA)"/>
+            <rect x="278" y="100" width="44" height="16" rx="3" fill="#f8f7fc"/>
+            <text font-family="PT Mono, monospace" font-size="10" fill="#6b6190" x="300" y="112" text-anchor="middle">OIDC</text>
+            <!-- Okta -->
+            <rect x="155" y="138" width="290" height="62" rx="8" fill="#e1f5ee" stroke="#5dcaa5" stroke-width="1.5"/>
+            <text font-family="Montserrat, sans-serif" font-weight="700" font-size="13" fill="#2a2535" x="300" y="163" text-anchor="middle">Okta</text>
+            <text font-family="PT Mono, monospace" font-size="11" fill="#0f6e56" x="300" y="182" text-anchor="middle">Identity broker + provisioning agent</text>
+            <!-- Arrow left (SSO) -->
+            <line x1="248" y1="200" x2="193" y2="278" stroke="#6b6190" stroke-width="1.2" marker-end="url(#arA)"/>
+            <text font-family="PT Mono, monospace" font-size="10" fill="#6b6190" x="192" y="246" text-anchor="middle">SAML SSO</text>
+            <!-- Arrow right (SCIM) -->
+            <line x1="352" y1="200" x2="402" y2="278" stroke="#6b6190" stroke-width="1.2" marker-end="url(#arA)"/>
+            <text font-family="PT Mono, monospace" font-size="10" fill="#6b6190" x="396" y="246" text-anchor="middle">SCIM</text>
+            <!-- Salesforce -->
+            <rect x="155" y="278" width="290" height="62" rx="8" fill="#e6f1fb" stroke="#85b7eb" stroke-width="1.5"/>
+            <text font-family="Montserrat, sans-serif" font-weight="700" font-size="13" fill="#2a2535" x="300" y="303" text-anchor="middle">Salesforce</text>
+            <text font-family="PT Mono, monospace" font-size="11" fill="#185fa5" x="300" y="322" text-anchor="middle">Service Provider (SP)</text>
+            <!-- Lifecycle note -->
+            <text font-family="PT Mono, monospace" font-size="10" fill="#888780" x="300" y="378" text-anchor="middle">Create in Entra &rarr; JIT in Okta &rarr; Okta SCIM provisions Salesforce</text>
+          </svg>
+          <p class="vp-diagram-caption">Scenario A: Entra as IdP, Okta as broker, Salesforce as SP</p>
+        </div>
+        <div class="vp-flow" data-aos="fade-up" data-aos-delay="120">
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Step 1</div>
+            <div class="vp-flow-label">User hits Okta login</div>
+            <div class="vp-flow-desc">User enters their Microsoft UPN at the Okta org URL. A routing rule matches the domain and redirects to Entra via OIDC authorization code flow.</div>
+          </div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Step 2</div>
+            <div class="vp-flow-label">Entra enforces the access gate</div>
+            <div class="vp-flow-desc">Entra checks group membership on the Enterprise Application. Users outside the scoped group are blocked before any token is issued. Conditional Access policies fire here.</div>
+          </div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Step 3</div>
+            <div class="vp-flow-label">Entra issues OIDC token</div>
+            <div class="vp-flow-desc">On successful auth, Entra returns an ID token to Okta's callback with email, given_name, and family_name claims. These must be explicitly added as optional claims on the App Registration; Entra omits them by default.</div>
+          </div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Step 4</div>
+            <div class="vp-flow-label">Okta provisions the Salesforce account</div>
+            <div class="vp-flow-desc">Okta's SCIM provisioning (via OAuth) creates the Salesforce account automatically when the user is assigned to the Salesforce app group. Deprovisioning is also wired up: removing the user from the group deactivates the Salesforce account. On first login, Okta JIT-links the Universal Directory profile to the provisioned account.</div>
+          </div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Step 5</div>
+            <div class="vp-flow-label">Okta issues SAML assertion to Salesforce</div>
+            <div class="vp-flow-desc">Okta acts as the outbound SAML IdP, issuing a signed assertion to Salesforce. Salesforce validates the signature, matches the assertion to the provisioned account using the username field, and creates an authenticated session.</div>
+          </div>
+        </div>
+        <div class="vp-screenshots-row" data-aos="fade-up">
+          <div class="vp-screenshot-slot">
+            <div class="vp-ss-thumb"><img src="images/fed-a-okta-routing-rule.png" alt="Okta routing rules — admin bypass at position 1, domain redirect below" class="vp-ss-img"></div>
+            <p class="vp-ss-cap">Okta routing rules — admin bypass pinned to position 1, domain redirect rule below. Prevents lockout before federation is live.</p>
+          </div>
+          <div class="vp-screenshot-slot">
+            <div class="vp-ss-thumb"><img src="images/fed-a-okta-idp.png" alt="Okta Identity Providers — Entra ID listed as Active OIDC IdP" class="vp-ss-img"></div>
+            <p class="vp-ss-cap">Okta Identity Providers showing Microsoft Entra ID as Active with OIDC / JIT provisioning configured.</p>
+          </div>
+          <div class="vp-screenshot-slot">
+            <div class="vp-ss-thumb"><img src="images/fed-a-okta-sf-scim.png" alt="Okta Salesforce app — SCIM provisioning via OAuth configured and active" class="vp-ss-img"></div>
+            <p class="vp-ss-cap">Okta → Salesforce provisioning tab showing OAuth-based SCIM configured with Create, Update, and Deactivate enabled.</p>
+          </div>
+          <div class="vp-screenshot-slot">
+            <div class="vp-ss-thumb"><img src="images/fed-a-sf-sso-success.png" alt="Salesforce session showing successful SSO login via Okta" class="vp-ss-img"></div>
+            <p class="vp-ss-cap">Salesforce login session confirming end-to-end federated SSO through the Entra → Okta → Salesforce chain.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── SCENARIO B ────────────────────────────────────────────── -->
+  <div class="vp-dark-band" id="scenario-b">
+    <div class="container">
+      <div class="vp-section vp-on-dark">
+        <p class="vp-eyebrow" data-aos="fade-up">Scenario B</p>
+        <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">Okta as Source of Truth</h2>
+        <hr class="vp-rule">
+        <p class="port-p" data-aos="fade-up" data-aos-delay="100">
+          Okta is the authoritative identity store. It provisions users into Entra ID via SCIM, giving
+          them a Microsoft account so M365 services work natively. Entra then acts as the identity bridge
+          for downstream apps, handling SAML SSO and SCIM provisioning to ServiceNow directly. Okta is
+          not involved in the Entra-to-ServiceNow leg at all. One deactivation in Okta cascades through
+          Entra and into ServiceNow automatically.
+        </p>
+        <div class="vp-diagram-wrap dark" data-aos="fade-up" data-aos-delay="120">
+          <svg width="100%" viewBox="0 0 620 480" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <marker id="arB1" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="#1d9e75" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+              <marker id="arB2" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+                <path d="M2 1L8 5L2 9" fill="none" stroke="#7f77dd" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+              </marker>
+            </defs>
+            <!-- Okta -->
+            <rect x="165" y="24" width="290" height="62" rx="8" fill="#0a2e22" stroke="#1d9e75" stroke-width="1.5"/>
+            <text font-family="Montserrat, sans-serif" font-weight="700" font-size="13" fill="#9fe1cb" x="310" y="49" text-anchor="middle">Okta</text>
+            <text font-family="PT Mono, monospace" font-size="11" fill="#5dcaa5" x="310" y="68" text-anchor="middle">Source of truth / master identity store</text>
+            <!-- Arrow down (SCIM to Entra) -->
+            <line x1="310" y1="86" x2="310" y2="156" stroke="#1d9e75" stroke-width="1.2" marker-end="url(#arB1)"/>
+            <rect x="253" y="113" width="114" height="16" rx="3" fill="#1e1b2e"/>
+            <text font-family="PT Mono, monospace" font-size="10" fill="#9d96b8" x="310" y="125" text-anchor="middle">SCIM provisioning</text>
+            <!-- Entra -->
+            <rect x="155" y="156" width="310" height="62" rx="8" fill="#1e1640" stroke="#7f77dd" stroke-width="1.5"/>
+            <text font-family="Montserrat, sans-serif" font-weight="700" font-size="13" fill="#c0bcd4" x="310" y="181" text-anchor="middle">Microsoft Entra ID</text>
+            <text font-family="PT Mono, monospace" font-size="11" fill="#9d96b8" x="310" y="200" text-anchor="middle">Identity bridge + IdP for downstream apps</text>
+            <!-- Arrow left (SAML to ServiceNow) -->
+            <line x1="268" y1="218" x2="220" y2="320" stroke="#7f77dd" stroke-width="1.2" marker-end="url(#arB2)"/>
+            <text font-family="PT Mono, monospace" font-size="10" fill="#9d96b8" x="213" y="276" text-anchor="middle">SAML SSO</text>
+            <!-- Arrow right (SCIM to ServiceNow) -->
+            <line x1="365" y1="218" x2="405" y2="320" stroke="#7f77dd" stroke-width="1.2" marker-end="url(#arB2)"/>
+            <text font-family="PT Mono, monospace" font-size="10" fill="#9d96b8" x="403" y="276" text-anchor="middle">SCIM</text>
+            <!-- ServiceNow -->
+            <rect x="155" y="320" width="310" height="62" rx="8" fill="#092040" stroke="#378add" stroke-width="1.5"/>
+            <text font-family="Montserrat, sans-serif" font-weight="700" font-size="13" fill="#b5d4f4" x="310" y="345" text-anchor="middle">ServiceNow</text>
+            <text font-family="PT Mono, monospace" font-size="11" fill="#85b7eb" x="310" y="364" text-anchor="middle">Service Provider (SP)</text>
+            <!-- Lifecycle note -->
+            <text font-family="PT Mono, monospace" font-size="10" fill="#6b6585" x="310" y="417" text-anchor="middle">Deactivate in Okta &#x2192; deprovisioned in Entra &#x2192; deprovisioned in ServiceNow</text>
+            <!-- Note 2 -->
+            <text font-family="PT Mono, monospace" font-size="10" fill="#6b6585" x="310" y="445" text-anchor="middle">Okta is not involved in auth or provisioning to ServiceNow</text>
+          </svg>
+          <p class="vp-diagram-caption" style="color:#6b6585;">Scenario B: Okta owns lifecycle, Entra is the bridge and IdP for ServiceNow</p>
+        </div>
+        <div class="vp-flow" data-aos="fade-up" data-aos-delay="120">
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Step 1</div>
+            <div class="vp-flow-label">User created in Okta</div>
+            <div class="vp-flow-desc">A new user is created in Okta. It is the record of truth. The account does not yet exist anywhere else.</div>
+          </div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Step 2</div>
+            <div class="vp-flow-label">Okta SCIM provisions Entra</div>
+            <div class="vp-flow-desc">Okta pushes the user into Entra ID via SCIM. The Entra account is created with attributes mapped from the Okta profile. The user now has access to M365 apps natively.</div>
+          </div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Step 3</div>
+            <div class="vp-flow-label">Entra SCIM provisions ServiceNow</div>
+            <div class="vp-flow-desc">Entra's own provisioning engine detects the in-scope user and issues a SCIM POST to ServiceNow's API. The ServiceNow account is created with attributes mapped from Entra, configured independently from the Okta-to-Entra mapping.</div>
+          </div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Step 4</div>
+            <div class="vp-flow-label">User authenticates via SAML</div>
+            <div class="vp-flow-desc">User initiates ServiceNow login. ServiceNow redirects to Entra as the configured SAML IdP. Entra authenticates the user and issues a SAML assertion. ServiceNow matches the NameID to the provisioned userName and creates a session.</div>
+          </div>
+          <div class="vp-flow-row">
+            <div class="vp-flow-step">Step 5</div>
+            <div class="vp-flow-label">Deprovisioning cascades automatically</div>
+            <div class="vp-flow-desc">Removing the user in Okta triggers SCIM deactivation in Entra. Entra's SCIM cycle then deactivates the ServiceNow account. One action in Okta removes access to M365 and ServiceNow without any additional steps.</div>
+          </div>
+        </div>
+        <div class="vp-screenshots-row" data-aos="fade-up">
+          <div class="vp-screenshot-slot">
+            <div class="vp-ss-thumb"><img src="images/fed-b-okta-entra-scim.png" alt="Okta provisioning logs showing successful SCIM Create into Entra ID" class="vp-ss-img"></div>
+            <p class="vp-ss-cap">Okta provisioning logs showing a successful SCIM Create event into Entra ID, confirming the Okta-to-Entra lifecycle leg.</p>
+          </div>
+          <div class="vp-screenshot-slot">
+            <div class="vp-ss-thumb"><img src="images/fed-b-entra-snow-scim.png" alt="Entra provisioning to ServiceNow — SCIM provisioning active" class="vp-ss-img"></div>
+            <p class="vp-ss-cap">Entra → ServiceNow enterprise app Provisioning tab showing SCIM active with attribute mappings configured independently from Okta.</p>
+          </div>
+          <div class="vp-screenshot-slot">
+            <div class="vp-ss-thumb"><img src="images/fed-b-snow-idp-record.png" alt="ServiceNow SSO IdP record with Active toggle on" class="vp-ss-img"></div>
+            <p class="vp-ss-cap">ServiceNow SSO IdP record configured with Entra as the SAML identity provider, Active toggle on and test connection passing.</p>
+          </div>
+          <div class="vp-screenshot-slot">
+            <div class="vp-ss-thumb"><img src="images/fed-b-snow-sso-success.png" alt="ServiceNow session showing successful login via Microsoft Entra SSO" class="vp-ss-img"></div>
+            <p class="vp-ss-cap">ServiceNow session confirming federated SSO via the Okta → Entra → ServiceNow chain with the user profile visible.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── COMPARISON TABLE ──────────────────────────────────────── -->
+  <div id="comparison">
+    <div class="container">
+      <div class="vp-section vp-on-light">
+        <p class="vp-eyebrow" data-aos="fade-up">Architecture Comparison</p>
+        <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">Side by Side</h2>
+        <hr class="vp-rule">
+        <p class="port-p" data-aos="fade-up" data-aos-delay="100">
+          Both architectures deliver federated SSO and automated provisioning. The meaningful differences
+          are in where authority lives, how many hops authentication makes, and what breaks if any one
+          component goes down.
+        </p>
+        <div class="vp-compare-wrap" data-aos="fade-up" data-aos-delay="120">
+          <table class="vp-compare-table">
+            <thead>
+              <tr>
+                <th class="col-dim"></th>
+                <th class="col-a">Scenario A &mdash; Entra as IdP</th>
+                <th class="col-b">Scenario B &mdash; Okta as IdP</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="col-dim">User record lives in</td>
+                <td class="col-a">Microsoft Entra ID</td>
+                <td class="col-b">Okta Universal Directory</td>
+              </tr>
+              <tr>
+                <td class="col-dim">Auth chain</td>
+                <td class="col-a">3 hops: Entra &rarr; Okta &rarr; Salesforce</td>
+                <td class="col-b">2 hops: Entra &rarr; ServiceNow (Okta not in auth path)</td>
+              </tr>
+              <tr>
+                <td class="col-dim">Provisioning chain</td>
+                <td class="col-a">Okta SCIM &rarr; Salesforce</td>
+                <td class="col-b">Okta SCIM &rarr; Entra, then Entra SCIM &rarr; ServiceNow</td>
+              </tr>
+              <tr>
+                <td class="col-dim">Okta's role</td>
+                <td class="col-a">Broker: handles auth AND provisioning to SP</td>
+                <td class="col-b">Source: owns lifecycle, not involved in auth to SP</td>
+              </tr>
+              <tr>
+                <td class="col-dim">M365 access</td>
+                <td class="col-a">Native (Entra is already the IdP)</td>
+                <td class="col-b">Via Entra accounts provisioned by Okta via SCIM</td>
+              </tr>
+              <tr>
+                <td class="col-dim">Protocols used</td>
+                <td class="col-a">OIDC (Entra to Okta), SAML + SCIM (Okta to Salesforce)</td>
+                <td class="col-b">SCIM (Okta to Entra), SAML + SCIM (Entra to ServiceNow)</td>
+              </tr>
+              <tr>
+                <td class="col-dim">If Okta goes down</td>
+                <td class="col-a">Auth and provisioning to Salesforce both break</td>
+                <td class="col-b">Provisioning to Entra pauses; SSO to ServiceNow still works</td>
+              </tr>
+              <tr>
+                <td class="col-dim">Conditional Access</td>
+                <td class="col-a">Enforced at Entra before Okta sees the user</td>
+                <td class="col-b">Enforced at Entra before ServiceNow sees the user</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── WHEN TO USE ────────────────────────────────────────────── -->
+  <div class="vp-dark-band" id="when-to-use">
+    <div class="container">
+      <div class="vp-section vp-on-dark">
+        <p class="vp-eyebrow" data-aos="fade-up">Business Context</p>
+        <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">When to Use Each Architecture</h2>
+        <hr class="vp-rule">
+        <p class="port-p" data-aos="fade-up" data-aos-delay="100">
+          The right architecture is not a universal answer. It depends on where the organization's
+          identity record already lives, what tooling is in place, and how the IT team wants to own
+          the provisioning surface going forward.
+        </p>
+        <div class="vp-use-grid" data-aos="fade-up" data-aos-delay="120">
+          <div class="vp-use-card scen-a">
+            <div class="vp-use-label">Scenario A: reach for this when</div>
+            <ul>
+              <li>Microsoft is already the primary identity platform (M365, Azure, Intune in use)</li>
+              <li>The HR system syncs into Active Directory or Entra ID</li>
+              <li>Okta is being adopted for SaaS SSO brokering, not as a standalone IdP</li>
+              <li>Entra Conditional Access needs to fire before any downstream app is reached</li>
+              <li>Multiple SaaS apps need federation and Okta is the centralized broker for all of them</li>
+            </ul>
+          </div>
+          <div class="vp-use-card scen-b">
+            <div class="vp-use-label">Scenario B: reach for this when</div>
+            <ul>
+              <li>Okta is already the enterprise IdP and identity posture is built around it</li>
+              <li>The org uses a mix of Microsoft and non-Microsoft platforms and needs one system governing lifecycle across all of them</li>
+              <li>An M&amp;A event brought in a new Microsoft tenant that Okta needs to provision into</li>
+              <li>A downstream app integrates more cleanly with Microsoft's native SAML/SCIM than with Okta's connector</li>
+              <li>One deprovisioning action in Okta needs to cascade to both M365 and all downstream apps</li>
+            </ul>
+          </div>
+        </div>
+        <p class="port-p" data-aos="fade-up" data-aos-delay="130" style="margin-top:1.5rem;">
+          The key distinction: Scenario A makes Entra the authority and Okta a capability layer on top
+          of it. Scenario B inverts that, making Okta the control plane and Entra a provisioning target
+          that also acts as an IdP. Both are legitimate production patterns. The question is which
+          direction the organization's identity posture is already pointing.
+        </p>
+      </div>
+    </div>
+  </div>
+  <!-- ── DECISIONS WORTH NOTING ────────────────────────────────── -->
+  <div id="decisions">
+    <div class="container">
+      <div class="vp-section vp-on-light">
+        <p class="vp-eyebrow" data-aos="fade-up">Engineering Details</p>
+        <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">Decisions Worth Noting</h2>
+        <hr class="vp-rule">
+        <p class="port-p" data-aos="fade-up" data-aos-delay="100">
+          Several non-obvious configuration details surfaced across both scenarios that are worth
+          documenting for future implementations:
+        </p>
+        <div class="vp-nuance-list" data-aos="fade-up" data-aos-delay="130">
+          <div class="vp-nuance-item">
+            <div class="vp-nuance-left"><span class="vp-nuance-tag">Optional Claims</span></div>
+            <div class="vp-nuance-right">
+              <div class="vp-nuance-title">Entra omits given_name and family_name from OIDC tokens by default</div>
+              <p>In Scenario A, Okta requires both fields to JIT-provision a new user. Entra omits them from the ID token unless explicitly added as optional claims on the App Registration. The resulting JIT failure produces a non-obvious error that requires tracing through Okta system logs to identify the missing claim as the cause.</p>
+            </div>
+          </div>
+          <div class="vp-nuance-item">
+            <div class="vp-nuance-left"><span class="vp-nuance-tag">Admin Bypass Rule</span></div>
+            <div class="vp-nuance-right">
+              <div class="vp-nuance-title">Set up a routing rule bypass before federation goes live</div>
+              <p>In Scenario A, before activating the Okta routing rule that redirects a domain to Entra, a bypass rule for the admin UPN must sit at position 1. Okta evaluates rules top-down and stops at the first match. Without a bypass, the admin account can get caught by the federation rule, which may produce a lockout if the IdP connection has issues during testing.</p>
+            </div>
+          </div>
+          <div class="vp-nuance-item">
+            <div class="vp-nuance-left"><span class="vp-nuance-tag">userName Alignment</span></div>
+            <div class="vp-nuance-right">
+              <div class="vp-nuance-title">SCIM userName and SAML NameID must derive from the same source attribute</div>
+              <p>In Scenario B, ServiceNow matches the NameID in the SAML assertion to the userName field set during SCIM provisioning. If those two values come from different source attributes in Entra, the account exists but SSO silently fails with a user-not-found result. Mapping both from userPrincipalName in Entra ensures they stay aligned for the lifetime of the account, including after email address changes.</p>
+            </div>
+          </div>
+          <div class="vp-nuance-item">
+            <div class="vp-nuance-left"><span class="vp-nuance-tag">ServiceNow Plugin</span></div>
+            <div class="vp-nuance-right">
+              <div class="vp-nuance-title">SCIM requires the User Provisioning plugin to be Active, not just Installed</div>
+              <p>ServiceNow PDIs have the SCIM plugin installed but not always active. Entra provisioning will fail silently or return auth errors if the plugin is only in Installed state. Additionally, the <code>glide.authenticate.multisso.test.connection.mandatory</code> system property must be set to <code>false</code> to allow the SSO IdP record to be activated without a passing test connection.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── WHAT THIS DEMONSTRATES ────────────────────────────────── -->
+  <div class="vp-dark-band" id="demonstrates">
+    <div class="container">
+      <div class="vp-section vp-on-dark">
+        <p class="vp-eyebrow" data-aos="fade-up">Takeaways</p>
+        <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">What This Demonstrates</h2>
+        <hr class="vp-rule">
+        <p class="port-p" data-aos="fade-up" data-aos-delay="100">
+          Most federation implementations show one direction. Showing both, with a clear explanation of
+          when each is the right choice, reflects the kind of thinking that comes from working in
+          real environments with competing constraints rather than following a single guide.
+        </p>
+        <div class="vp-demonstrates-grid" data-aos="fade-up" data-aos-delay="120">
+          <div class="vp-demo-card">
+            <div class="vp-demo-card-title">Vendor-agnostic federation design</div>
+            <p>Ability to position Entra or Okta as the authoritative IdP depending on the org's existing posture, without being locked into one vendor's preferred architecture.</p>
+          </div>
+          <div class="vp-demo-card">
+            <div class="vp-demo-card-title">Cross-platform attribute mapping</div>
+            <p>Managing how identity attributes flow and transform across OIDC tokens, SCIM schemas, and SAML assertions across four different platforms simultaneously.</p>
+          </div>
+          <div class="vp-demo-card">
+            <div class="vp-demo-card-title">Full lifecycle management</div>
+            <p>SSO is one piece. Provisioning and deprovisioning are where real lifecycle management happens. Both scenarios cover the full chain including cascading deactivation.</p>
+          </div>
+          <div class="vp-demo-card">
+            <div class="vp-demo-card-title">Cross-platform diagnostics</div>
+            <p>Troubleshooting failures that span multiple platforms requires knowing which system owns what and how to trace an authentication or provisioning event end to end without obvious error messages.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── MY ROLE ───────────────────────────────────────────────── -->
+  <div id="role-section">
+    <div class="container">
+      <div class="vp-section vp-on-light">
+        <p class="vp-eyebrow" data-aos="fade-up">My Role</p>
+        <h2 class="vp-section-heading" data-aos="fade-up" data-aos-delay="50">Engineering Approach</h2>
+        <hr class="vp-rule">
+        <div class="vp-role-callout" data-aos="fade-up" data-aos-delay="100">
+          <strong>I designed and built both architectures end to end in a self-directed lab environment.</strong>
+          The goal was to build working implementations of two distinct patterns, understand the tradeoffs
+          at an engineering level, and be able to articulate when each is the right choice in a real
+          business context.
+          <br><br>
+          Scenario A involved designing the three-layer topology, working through the OIDC app registration
+          and Enterprise Application configuration in Entra, configuring the inbound identity provider and
+          routing rules in Okta, and connecting Salesforce as the downstream SAML SP with SCIM provisioning
+          from Okta. Scenario B extended the lab by reversing the authority model: adding Okta as the
+          upstream SCIM provisioner into Entra, then building the Entra-to-ServiceNow SAML and SCIM
+          integration as the downstream leg.
+          <br><br>
+          The troubleshooting process across both scenarios was as instructive as the configuration itself.
+          The JIT provisioning failure in Scenario A required tracing through Okta system logs and
+          cross-referencing the token output from Entra against Okta's provisioning requirements. The
+          userName/NameID mismatch in Scenario B required understanding how ServiceNow resolves identity
+          across two separate integration channels. Both are the kind of cross-platform diagnostic problems
+          that surface in production and do not have obvious answers from the error messages alone.
+        </div>
+        <div class="vp-skill-group" data-aos="fade-up" data-aos-delay="140">
+          <span class="vp-skill-label">Tools &amp; Technologies</span>
+          <div class="vp-tech-chips">
+            <span class="vp-chip vp-chip--iam">Microsoft Entra ID P2</span>
+            <span class="vp-chip vp-chip--iam">Okta Identity Engine</span>
+            <span class="vp-chip vp-chip--iam">Salesforce Developer Edition</span>
+            <span class="vp-chip vp-chip--iam">ServiceNow PDI</span>
+            <span class="vp-chip vp-chip--core">SCIM 2.0</span>
+            <span class="vp-chip vp-chip--core">SAML 2.0</span>
+            <span class="vp-chip vp-chip--core">OIDC / OAuth 2.0</span>
+            <span class="vp-chip vp-chip--iam">JIT Provisioning</span>
+            <span class="vp-chip vp-chip--iam">Automated Lifecycle Management</span>
+            <span class="vp-chip vp-chip--core">Attribute Mapping</span>
+            <span class="vp-chip vp-chip--process">Identity Federation</span>
+            <span class="vp-chip vp-chip--process">Architecture Design</span>
+            <span class="vp-chip vp-chip--process">Access Control Design</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- ── FOOTER ────────────────────────────────────────────────── -->
+  <div class="site-footer">
+    <div class="container">
+      <p class="vp-footer-credit">
+        Copyright &copy;<script>document.write(new Date().getFullYear());</script>. All Rights Reserved.<br>
+        Modified by Valerie Perez
+      </p>
+    </div>
+  </div>
+  <!-- Lightbox -->
+  <div id="vp-lightbox" role="dialog" aria-modal="true">
+    <button id="vp-lightbox-close" aria-label="Close">&times;</button>
+    <img id="vp-lightbox-img" src="" alt="">
+    <p id="vp-lightbox-cap"></p>
+  </div>
+
+  <script src="js/jquery-3.4.1.min.js"></script>
+  <script src="js/popper.min.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/aos.js"></script>
+  <script src="js/jquery.easing.1.3.js"></script>
+  <script src="js/custom.js"></script>
+  <script>
+    (function () {
+      var $lb    = $('#vp-lightbox');
+      var $img   = $('#vp-lightbox-img');
+      var $cap   = $('#vp-lightbox-cap');
+
+      // Open on thumbnail click
+      $(document).on('click', '.vp-ss-thumb', function () {
+        var $i = $(this).find('img');
+        $img.attr('src', $i.attr('src')).attr('alt', $i.attr('alt'));
+        $cap.text($(this).closest('.vp-screenshot-slot').find('.vp-ss-cap').text());
+        $lb.addClass('open');
+        $('body').css('overflow', 'hidden');
+      });
+
+      // Close on button, backdrop click, or Escape
+      $('#vp-lightbox-close').on('click', closeLb);
+      $lb.on('click', function (e) {
+        if ($(e.target).is($lb)) closeLb();
+      });
+      $(document).on('keydown', function (e) {
+        if (e.key === 'Escape') closeLb();
+      });
+
+      function closeLb() {
+        $lb.removeClass('open');
+        $('body').css('overflow', '');
+      }
+    })();
+  </script>
+</body>
+</html>
