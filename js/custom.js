@@ -98,6 +98,8 @@ $(function(){
 		$("body").on("click", ".site-nav-wrap li a[href^='#'], .smoothscroll[href^='#'], .site-mobile-menu .site-nav-wrap li a[href^='#']", function(e) {
 			e.preventDefault();
 			var hash = this.hash;
+			$('body').removeClass('offcanvas-menu');
+			$('body').find('.js-menu-toggle').removeClass('active');
 			$('html, body').animate({
 				scrollTop: $(hash).offset().top
 			}, 400, 'easeInOutExpo', function(){

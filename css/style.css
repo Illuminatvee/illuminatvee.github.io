@@ -1171,17 +1171,6 @@ figure.dotted-bg {
       border-left: 1px solid #efefef;
       border-right: 1px solid #efefef; }
 
-#about-section {
-  margin-top: 7rem; }
-  #about-section .container {
-    background: #8a81a3;
-    padding-top: 50px;
-    padding-bottom: 50px;
-    padding-left: 50px;
-    padding-right: 50px; }
-    #about-section .container .author-wrap {
-      margin-top: -150px; }
-
 .grid-item {
   position: relative; }
 
@@ -2112,11 +2101,11 @@ figure.dotted-bg {
 .vp-footer-credit {
   font-family: "PT Mono", monospace;
   font-size: 10px;
-  color: #4a4568;
+  color: #8a81a3;
   margin-top: 24px;
   line-height: 1.7; }
   .vp-footer-credit a {
-    color: #4a4568; }
+    color: #c0bcd4; }
 
 /* ============================================================
    TEMPLATE CONFLICT OVERRIDES
